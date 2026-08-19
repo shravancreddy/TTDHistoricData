@@ -1,0 +1,77 @@
+TIRUMALA DARSHAN - HISTORIC PILGRIM DATA
+============================================================
+Source          : https://news.tirumala.org/category/darshan/ (WP REST API, category id 2)
+Posts fetched   : 6,614
+Records parsed  : 6,614
+  with a pilgrim count : 6,461
+  full-day totals      : 4,423
+  partial-day snapshots: 2,038
+  queue-status only    : 147
+  no count found       : 153
+
+Unique dates    : 4,407
+Coverage        : 2013-10-02 -> 2026-08-16  (4,702 calendar days, 295 missing)
+Pilgrims/day    : min 1,635  median 67,502  max 110,662
+
+Highest recorded days:
+  2016-10-10   110,662
+  2019-10-07   105,298
+  2018-09-30   105,018
+  2016-08-14   104,023
+  2016-05-29   103,384
+
+Date provenance:
+  explicit_dmy@title                   2,232
+  month_day_year_inferred@title        2,141
+  month_day_year_inferred@body            28
+  explicit_dmy@body                        3
+  inferred_from_neighbours(lag=0)          1
+  inferred_from_neighbours(lag=1)          1
+  loose_dmy@title                          1
+
+Field coverage across daily rows:
+  pilgrims                4,407 / 4,407
+  tonsures                2,594 / 4,407
+  hundi_cr                2,650 / 4,407
+  laddu_lakh                 84 / 4,407
+  annaprasadam_lakh          81 / 4,407
+  hospital                   12 / 4,407
+  sarva_compartments      1,469 / 4,407
+  sarva_hours             3,411 / 4,407
+  sarva_status            3,451 / 4,407
+  divya_compartments      1,204 / 4,407
+  divya_hours             1,303 / 4,407
+  special_entry_status    1,612 / 4,407
+  darshan_wait_hours      1,798 / 4,407
+  waiting_compartments    3,447 / 4,407
+
+Coverage by year:
+  2013    88 days   avg    54,982   min   6,516   max  73,073
+  2014   363 days   avg    61,444   min  24,230   max  85,046
+  2015   362 days   avg    67,073   min  33,047   max 100,719
+  2016   364 days   avg    72,120   min  38,442   max 110,662
+  2017   352 days   avg    73,916   min   3,574   max 102,862
+  2018   273 days   avg    70,727   min  15,576   max 105,018
+  2019   290 days   avg    74,264   min  37,146   max 105,298
+  2020   280 days   avg    32,470   min   1,635   max  96,326
+  2021   360 days   avg    28,609   min   2,141   max  56,448
+  2022   365 days   avg    65,303   min  22,423   max  94,411
+  2023   363 days   avg    69,800   min  40,638   max  92,238
+  2024   361 days   avg    69,857   min  45,825   max  90,721
+  2025   361 days   avg    71,863   min  27,410   max  95,080
+  2026   225 days   avg    77,004   min  27,300   max  98,058
+
+Duplicate/conflict dates resolved: 16 (same value 5, took highest 11)
+Dates gapfilled from a mismatched title date: 0
+Dates flagged festival/holiday: 451 of 4,407
+Anomalies flagged: 87
+  title_body_date_mismatch             58
+  day_over_day_jump                     9
+  malformed_number_in_source            8
+  no_count_extracted                    6
+  very_low_count                        4
+  implausible_post_lag                  2
+
+Outputs: darshan_daily.csv, darshan_all_records.csv,
+         darshan_duplicates_resolved.csv, darshan_title_date_gapfills.csv,
+         darshan_anomalies.csv, darshan_partial_day.csv, darshan_gaps.csv
