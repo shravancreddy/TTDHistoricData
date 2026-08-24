@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTD Arjita Sevas — Interactive Reference 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+:root{
+  --gold:#c8973a; --gold-light:#e8b96a; --saffron:#e07b20;
+  --red:#8b1a1a; --red-light:#b52020;
+  --cream:#fdf8f0; --cream-dark:#f0e6d0;
+  --ink:#1a1208; --ink-mid:#3d2e12; --ink-light:#6b5230;
+  --border:rgba(200,151,58,0.25);
+  --shadow:0 2px 16px rgba(26,18,8,0.12);
+  --green:#2d6a4f; --blue:#2c5282; --purple:#553c9a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',Georgia,serif;font-size:13px;line-height:1.5;background:var(--cream);color:var(--ink);}
+
+.masthead{background:linear-gradient(160deg,#1a0a00 0%,#3d1a00 50%,#1a0a00 100%);padding:28px 40px 20px;position:relative;overflow:hidden;}
+.masthead::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(200,151,58,0.04) 20px,rgba(200,151,58,0.04) 22px);}
+.masthead-inner{position:relative;z-index:1;max-width:1500px;margin:0 auto;}
+.temple-name{font-family:'Cinzel',serif;font-size:1.75rem;color:var(--gold-light);font-weight:700;letter-spacing:0.04em;line-height:1.15;}
+.temple-sub{font-family:'Cinzel',serif;font-size:0.76rem;color:rgba(232,185,106,0.6);letter-spacing:0.12em;margin-top:4px;text-transform:uppercase;}
+.guide-title{font-family:'Cinzel',serif;font-size:0.9rem;color:var(--gold);margin-top:12px;letter-spacing:0.05em;border-top:1px solid rgba(200,151,58,0.3);padding-top:10px;}
+
+/* CONTROL PANEL */
+.controls{position:sticky;top:0;z-index:50;background:var(--cream-dark);border-bottom:2px solid var(--border);box-shadow:0 3px 12px rgba(26,18,8,0.10);}
+.controls-inner{max-width:1500px;margin:0 auto;padding:12px 16px;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;}
+.ctrl{display:flex;flex-direction:column;gap:3px;}
+.ctrl label{font-family:'Cinzel',serif;font-size:0.56rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-light);}
+.ctrl select,.ctrl input{font-family:'Source Sans 3',serif;font-size:0.82rem;padding:7px 10px;border:1px solid var(--gold);border-radius:6px;background:#fff;color:var(--ink);min-width:150px;}
+.ctrl select:focus,.ctrl input:focus{outline:2px solid var(--saffron);outline-offset:0;}
+.seg{display:inline-flex;border:1px solid var(--gold);border-radius:6px;overflow:hidden;background:#fff;}
+.seg button{font-family:'Source Sans 3',serif;font-size:0.82rem;font-weight:600;padding:7px 16px;border:none;background:#fff;color:var(--ink-mid);cursor:pointer;transition:all .12s;}
+.seg button+button{border-left:1px solid var(--border);}
+.seg button.active{background:linear-gradient(90deg,#1a0a00,#3d1a00);color:var(--gold-light);}
+.ctrl-reset{margin-left:auto;align-self:flex-end;}
+.ctrl-reset button{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.06em;padding:8px 14px;border:1px solid var(--red);border-radius:6px;background:#fff;color:var(--red);cursor:pointer;text-transform:uppercase;}
+.ctrl-reset button:hover{background:var(--red);color:#fff;}
+
+/* SUMMARY BAR */
+.summary{max-width:1500px;margin:14px auto 0;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.stat{background:#fff;border:1px solid var(--border);border-radius:8px;padding:8px 14px;box-shadow:var(--shadow);}
+.stat b{font-family:'Cinzel',serif;font-size:1.15rem;color:var(--saffron);display:block;line-height:1;}
+.stat span{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-light);}
+
+.container{max-width:1500px;margin:0 auto;padding:16px 16px 60px;}
+
+/* TEMPLE HEADER CARD */
+.temple-card{background:linear-gradient(120deg,#fff,#fdf6e8);border:1px solid var(--gold);border-left:5px solid var(--saffron);border-radius:10px;padding:14px 18px;margin:18px 0 4px;box-shadow:var(--shadow);}
+.temple-card h2{font-family:'Cinzel',serif;font-size:1.12rem;color:var(--red);font-weight:700;letter-spacing:0.02em;}
+.temple-card .loc{font-size:0.74rem;color:var(--saffron);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;margin:2px 0 4px;}
+.temple-card .deity{font-size:0.82rem;color:var(--ink-mid);font-weight:600;margin-bottom:4px;}
+.temple-card .desc{font-size:0.8rem;color:var(--ink-light);line-height:1.55;max-width:1050px;}
+.temple-card .tct{float:right;font-family:'Cinzel',serif;font-size:0.62rem;color:var(--ink-light);background:var(--cream-dark);border:1px solid var(--border);border-radius:20px;padding:4px 12px;}
+
+.tbl-wrap{width:100%;overflow-x:auto;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow);margin-bottom:8px;}
+table{width:100%;border-collapse:collapse;font-size:0.79rem;}
+thead tr{background:linear-gradient(90deg,#1a0a00,#2e1200);}
+th{font-family:'Cinzel',serif;font-weight:600;font-size:0.57rem;letter-spacing:0.07em;color:var(--gold-light);padding:9px 10px;text-align:left;white-space:nowrap;border-right:1px solid rgba(200,151,58,0.15);}
+th:last-child{border-right:none;}
+tbody tr{border-bottom:1px solid rgba(200,151,58,0.12);transition:background .12s;}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:rgba(200,151,58,0.09);}
+tbody tr:nth-child(even){background:rgba(200,151,58,0.025);}
+td{padding:9px 10px;vertical-align:top;border-right:1px solid rgba(200,151,58,0.08);line-height:1.5;}
+td:last-child{border-right:none;}
+
+.seva-name{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;color:var(--ink-mid);}
+.tag{display:inline-block;font-size:0.58rem;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:0.03em;white-space:nowrap;margin:2px 2px 0 0;}
+.tag-daily{background:#d4edda;color:#1a4a2a;border:1px solid #2d6a4f;}
+.tag-weekly{background:#dbeafe;color:#1e3a5f;border:1px solid #2c5282;}
+.tag-monthly{background:#ede9fe;color:#3b1a6e;border:1px solid #553c9a;}
+.tag-annual{background:#fef3c7;color:#5a3000;border:1px solid #c07020;}
+.tag-type{background:#faf0e0;color:#7a3800;border:1px solid #d9a441;font-weight:600;}
+
+.cost-big{font-family:'Cinzel',serif;font-weight:700;font-size:0.98rem;color:var(--saffron);white-space:nowrap;}
+.cost-note{font-size:0.66rem;color:var(--ink-light);display:block;margin-top:1px;}
+.free{color:var(--green)!important;}
+.persons-pill{display:inline-block;font-size:0.64rem;padding:2px 7px;border-radius:4px;font-weight:600;background:#eef4ee;color:#1a4a2a;white-space:nowrap;}
+.couple-flag{display:inline-block;font-size:0.6rem;padding:1px 6px;border-radius:4px;background:#fde8e8;color:#7a0000;border:1px solid #d99;margin-top:3px;}
+.report-loc{color:var(--red);font-weight:600;}
+.report-time{font-family:'Cinzel',serif;font-size:0.78rem;color:var(--ink);font-weight:600;white-space:nowrap;}
+.priv{font-size:0.72rem;color:var(--ink-light);font-style:italic;}
+.no-priv{color:#bbb;}
+
+.empty{text-align:center;padding:50px 20px;color:var(--ink-light);font-size:0.95rem;}
+.empty b{font-family:'Cinzel',serif;color:var(--red);display:block;font-size:1.1rem;margin-bottom:6px;}
+
+/* FOOTNOTES */
+.footnotes{margin-top:28px;padding:16px 20px;background:var(--cream-dark);border:1px solid var(--border);border-radius:10px;font-size:0.76rem;color:var(--ink-light);line-height:1.62;}
+.footnotes h3{font-family:'Cinzel',serif;font-size:0.68rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin:4px 0 9px;}
+.footnotes ul{padding-left:18px;margin-bottom:8px;}
+.footnotes li{margin-bottom:5px;}
+.footnotes a{color:var(--red-light);text-decoration:none;}
+.footnotes a:hover{text-decoration:underline;}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:820px){.cols{grid-template-columns:1fr;}.temple-card .tct{float:none;display:inline-block;margin-top:6px;}}
+
+.dress-box{background:rgba(200,151,58,0.08);border:1px solid rgba(200,151,58,0.3);border-radius:8px;padding:9px 14px;font-size:0.76rem;margin:14px 0 0;}
+.dress-box strong{color:var(--ink-mid);font-size:0.66rem;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:4px;}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="temple-name">TTD Arjita Sevas — Interactive Reference</div>
+    <div class="temple-sub">Tirumala Tirupati Devasthanams · 13 Temples · 94 Paid Ritual Sevas (Arjitha)</div>
+    <div class="guide-title">Select a temple, party size, and seva frequency to see live cost, reporting point, timings &amp; prasadam — 2026</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="ctrl">
+      <label for="temple">Temple</label>
+      <select id="temple"></select>
+    </div>
+    <div class="ctrl">
+      <label>Pilgrims in your party</label>
+      <div class="seg" id="persons">
+        <button data-p="1" class="active">1 Person</button>
+        <button data-p="2">2 Persons</button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <label for="freq">Seva Frequency</label>
+      <select id="freq">
+        <option value="">All frequencies</option>
+        <option value="Daily">Daily</option>
+        <option value="Weekly">Weekly (special weekday)</option>
+        <option value="Monthly">Monthly (Pournami / Amavasya)</option>
+        <option value="Annual / Seasonal">Annual / Seasonal (festivals)</option>
+      </select>
+    </div>
+    <div class="ctrl">
+      <label for="stype">Seva Category</label>
+      <select id="stype"><option value="">All categories</option></select>
+    </div>
+    <div class="ctrl">
+      <label for="search">Search seva</label>
+      <input id="search" type="text" placeholder="e.g. kalyanotsavam, abhishekam…" autocomplete="off">
+    </div>
+    <div class="ctrl-reset"><button id="reset">Reset filters</button></div>
+  </div>
+</div>
+
+<div class="summary" id="summary"></div>
+
+<div class="container">
+  <div id="results"></div>
+
+  <div class="dress-box">
+    <strong>🧥 Dress Code for all Arjita Sevas</strong>
+    Traditional attire is mandatory at every seva. <b>Male:</b> Dhoti &amp; Shirt / Kurta. <b>Female:</b> Saree / Half-Saree / Chudidar with Dupatta. Footwear is not permitted inside temple queue complexes or Mada Streets.
+  </div>
+
+  <div class="footnotes">
+    <h3>Official eDIP / Arjitha Seva Booking Rules &amp; Eligibility</h3>
+    <div class="cols">
+      <ul id="rulesA"></ul>
+      <ul id="rulesB"></ul>
+    </div>
+    <h3 style="margin-top:12px">Reading This Guide</h3>
+    <ul>
+      <li><b>Cost shown updates with your party size.</b> Each seva ticket admits a fixed number of pilgrims (the "per-ticket" figure). If your party is larger than one ticket allows, additional tickets are added and the total is recalculated automatically.</li>
+      <li><b>Couple sevas</b> (e.g. Kalyanotsavam, Vratham, Veda Ashirvachanam) are performed by one married couple per ticket and admit 2 pilgrims — a party of 2 needs only 1 ticket.</li>
+      <li><b>Frequency</b> is inferred from each seva's name and TTD's ritual calendar: <span class="tag tag-daily">Daily</span> offered most days · <span class="tag tag-weekly">Weekly</span> on a fixed weekday (e.g. Friday/Saturday) · <span class="tag tag-monthly">Monthly</span> on lunar days (Pournami/Amavasya) · <span class="tag tag-annual">Annual / Seasonal</span> only during festivals or sacred months (Brahmotsavam, Dhanurmasam, Thaimasam, Pavitrotsavam, Vasanthotsavam, etc.).</li>
+      <li><b>Reporting time &amp; location</b> are exactly as published on the TTD Arjitha Seva master. Report at least 30–45 minutes before the stated time with original photo ID.</li>
+      <li>Amounts, timings and prasadam (privileges) are sourced from the TTD Arjitha Seva master data (ttdevasthanams.ap.gov.in). Always re-confirm current-year dates and availability on the official portal before travel.</li>
+    </ul>
+    <h3 style="margin-top:12px">Official Portals &amp; Helpline</h3>
+    <ul>
+      <li>Arjita Seva &amp; Darshan booking: <a href="https://ttdevasthanams.ap.gov.in" target="_blank" rel="noopener">ttdevasthanams.ap.gov.in</a> &amp; the Govinda mobile app.</li>
+      <li>Donor / Srivani darshans &amp; eDonation: <a href="https://tirupatibalaji.ap.gov.in" target="_blank" rel="noopener">tirupatibalaji.ap.gov.in</a>. Information hub: <a href="https://www.tirumala.org" target="_blank" rel="noopener">www.tirumala.org</a>.</li>
+      <li>TTD Helpline (24×7 toll-free): 1800-425-333333 · 1800-425-4141 · 155257. TTD does not authorise any private agents — beware of touts and fraudulent websites.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+const DATA = [{"id":1,"temple":"Srivari Temple","location":"Tirumala","shortName":"Sri TT","sevas":[{"id":1,"name":"Unjal Seva","amount":500,"pilgrims":1,"report":"Supatham","time":"11:00 AM","priv":null,"freq":"Daily","stype":"Unjal (Swing) Seva"},{"id":2,"name":"Arjitha Brahmotsavam","amount":500,"pilgrims":1,"report":"Vaibhavothsava Mandapam","time":"02:30 PM","priv":null,"freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":3,"name":"Kalyanotsavam","amount":1000,"pilgrims":2,"report":"Supatham","time":"10:00 AM","priv":null,"freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":4,"name":"Sahasra Deepalankara Seva","amount":500,"pilgrims":1,"report":"SD Mandapam","time":"04:30 PM","priv":null,"freq":"Daily","stype":"Deepalankarana (Lamps)"},{"id":5,"name":"Jyestabhishekam","amount":400,"pilgrims":1,"report":"VQC-1","time":"07:30 AM","priv":null,"freq":"Annual / Seasonal","stype":"Abhishekam (Sacred Bath)"},{"id":7,"name":"Pavithrotsavam","amount":2500,"pilgrims":1,"report":"Supatham","time":"07:00 AM","priv":null,"freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":8,"name":"Pushpayagam","amount":700,"pilgrims":1,"report":"Supatham","time":"08:00 AM","priv":null,"freq":"Annual / Seasonal","stype":"Homam / Yagam"},{"id":10,"name":"Float Festival","amount":500,"pilgrims":1,"report":"In front of Srivari Pushkarini","time":"06:00 PM","priv":"One small laddu","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":15,"name":"Salakatla Vasanthotsavam","amount":300,"pilgrims":1,"report":"Vasantha Mandapam [Back side of the Temple]","time":"01:00 PM","priv":"One small laddu","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"}],"deity":"Sri Venkateswara Swamy (Balaji)","desc":"The principal hill shrine — the richest and most-visited temple in the world. Arjita sevas here are performed inside the temple complex and include darshan of the Moolavirat."},{"id":2,"temple":"Sapthagiri Gau Pradakshina Shala","location":"Tirupati","shortName":"SGPS","sevas":[{"id":9,"name":"Sri Srinivasa Divyaanugraha Homam","amount":1600,"pilgrims":2,"report":"Sapthagiri Gau Pradakshina Shala, Alipiri","time":"08:30 AM","priv":null,"freq":"Daily","stype":"Homam / Yagam"}],"deity":"Sri Srinivasa (Homam venue)","desc":"Gau Pradakshina Shala at Alipiri where the Sri Srinivasa Divyaanugraha Homam is conducted; participants get ₹300 SED darshan at Tirumala the same day."},{"id":3,"temple":"Sri Govindarajaswamy Temple","location":"Tirupathi","shortName":"Sri GT","sevas":[{"id":12,"name":"Kumkumarchana","amount":250,"pilgrims":2,"report":"Arjitham Seva Ticket Issue Counter","time":"09:45 AM","priv":null,"freq":"Daily","stype":"Archana / Puja"},{"id":13,"name":"Veda Ashirvachanam","amount":500,"pilgrims":2,"report":"Arjitham Seva Ticket Issue Counter","time":"10.00 AM to 12.00 PM : 02.00 PM to 05.00 PM","priv":"one cotton upper and Blouse piece","freq":"Daily","stype":"Veda Ashirvachanam"},{"id":14,"name":"Unjal Seva","amount":116,"pilgrims":2,"report":"In front of the temple","time":"05:15 PM","priv":null,"freq":"Daily","stype":"Unjal (Swing) Seva"},{"id":87,"name":"Pavithrotsavam","amount":500,"pilgrims":2,"report":"Arjitham Seva ticket issue counter, Sri GT","time":"08:50 AM","priv":"One Pavithram will be issued 05.09.2025","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"}],"deity":"Sri Govindaraja Swamy (reclining Vishnu)","desc":"Large temple in the heart of Tirupati town, consecrated by Sri Ramanujacharya in 1130 AD. Elder brother of Lord Balaji."},{"id":4,"temple":"Sri Padmavathi Ammavari Temple","location":"Tiruchanoor","shortName":"Sri PAT","sevas":[{"id":16,"name":"Suprabhatham","amount":50,"pilgrims":1,"report":"In front of the temple","time":"04:00 AM","priv":null,"freq":"Daily","stype":"Suprabhatam (Awakening)"},{"id":17,"name":"Suprabhatham (Friday)","amount":50,"pilgrims":1,"report":"In front of the temple","time":"03:00 AM","priv":null,"freq":"Weekly","stype":"Suprabhatam (Awakening)"},{"id":19,"name":"Kalyanotsavam","amount":500,"pilgrims":2,"report":"In front of the temple","time":"09:30 AM","priv":"Upper Cloth, Blouse Piece, Vada, Laddu","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":20,"name":"Astadala Pada Padmaradhanam","amount":300,"pilgrims":1,"report":"In front of the temple","time":"06:30 AM","priv":"Vada, Laddu & Carry bag","freq":"Daily","stype":"Padma Aradhana"},{"id":21,"name":"Thiruppavada","amount":1000,"pilgrims":1,"report":"In front of the temple","time":"06:30 AM","priv":"Vada, Laddu, Appam, Jilebi, Thenthola & Carry bag.","freq":"Daily","stype":"Thiruppavada (Food Offering)"},{"id":22,"name":"Vastralankara Seva","amount":10000,"pilgrims":2,"report":"In front of the temple","time":"05:00 AM","priv":"Pattu sariga Duppata, Blouse piece, 2 Vadas, 2 Laddus and carry bag.","freq":"Daily","stype":"Vastralankara (Vesture)"},{"id":23,"name":"Vastralankara Seva (Thaimasam)","amount":10000,"pilgrims":2,"report":"In front of the temple","time":"04:30 AM","priv":"Pattu sariga Duppata, Blouse piece, 2 Vadas, 2 Laddus and carry bag.","freq":"Annual / Seasonal","stype":"Vastralankara (Vesture)"},{"id":25,"name":"Abhishekam","amount":500,"pilgrims":1,"report":"In front of the temple","time":"05:00 AM","priv":"Laddu","freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":26,"name":"Abhishekam (Thaimasam)","amount":500,"pilgrims":1,"report":"In front of the temple","time":"04:30 AM","priv":"Laddu","freq":"Annual / Seasonal","stype":"Abhishekam (Sacred Bath)"},{"id":28,"name":"Lakshmi Puja","amount":100,"pilgrims":1,"report":"In front of the temple","time":"09:00 AM","priv":"Blouse Piece","freq":"Daily","stype":"Archana / Puja"},{"id":57,"name":"Pushpanjali Seva","amount":300,"pilgrims":1,"report":"In front of the temple","time":"06:30 AM","priv":"Vada, Laddu","freq":"Daily","stype":"Archana / Puja"},{"id":58,"name":"Astothara Satakalasabhishekam","amount":1000,"pilgrims":1,"report":"In front of the temple","time":"06:30 AM","priv":"2 Laddus, 2 Vadas & Carry bag.","freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":60,"name":"Laksha Kumkumarchana","amount":1000,"pilgrims":2,"report":"In front of the temple (Opp to Kumkuma Archana Counter)","time":"07:30 AM","priv":"01 Upper Cloth, 01 Blouse Piece, 01 Laddus, 02 Vadas & 1 Carry bag on free of cost","freq":"Daily","stype":"Archana / Puja"},{"id":61,"name":"Vasanthotsavam","amount":150,"pilgrims":1,"report":"In front of the temple","time":"02:00 PM","priv":"1 Laddu, 1 Vada","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":62,"name":"Varalakshmi Vratham","amount":1000,"pilgrims":2,"report":"Gate No. 03, Asthanamandapam, Sri PAT","time":"09:00 AM","priv":"1 Laddu,1 Vada,1 Upper Cloth,1 Blouse Piece,1 Carry bag","freq":"Annual / Seasonal","stype":"Vratham"},{"id":75,"name":"Suprabhatham (Vasanthotsavam)","amount":50,"pilgrims":1,"report":"In front of the temple","time":"02:00 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":76,"name":"Suprabhatham (Koilalwar Thirumanjanam Day)","amount":50,"pilgrims":1,"report":"In front of the temple","time":"03:30 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":83,"name":"Suprabhatham (Varalakshmi Vratham Day)","amount":50,"pilgrims":1,"report":"In front of the temple","time":"02:00 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":88,"name":"Pavitrotsavam","amount":750,"pilgrims":1,"report":"In front of the temple","time":"06:30 AM","priv":"2 Laddus, 2 Vadas & Carry bag.","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":89,"name":"Pushpayagam","amount":500,"pilgrims":2,"report":"In front of the temple (Opp to Kumkuma Archana Counter)","time":"04:30 PM","priv":"02 Laddus, 02 Vadas & 1 Carry bag on free of cost","freq":"Annual / Seasonal","stype":"Homam / Yagam"},{"id":90,"name":"Suprabhatham Dhanurmasam","amount":50,"pilgrims":1,"report":"In front of the temple","time":"03:30 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":91,"name":"Suprabhatham Dhanurmasam (Friday)","amount":50,"pilgrims":1,"report":"In front of the temple","time":"02:30 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":92,"name":"Astadala Pada Padmaradhanam Dhanurmasam","amount":300,"pilgrims":1,"report":"In front of the temple","time":"07:00 AM","priv":"Vada, Laddu & Carry bag","freq":"Annual / Seasonal","stype":"Padma Aradhana"},{"id":93,"name":"Thiruppavada Dhanurmasam","amount":1000,"pilgrims":1,"report":"In front of the temple","time":"07:00 AM","priv":"Vada, Laddu, Appam, Jilebi, Thenthola & Carry bag.","freq":"Annual / Seasonal","stype":"Thiruppavada (Food Offering)"},{"id":94,"name":"Vastralankara Seva Dhanurmasam","amount":10000,"pilgrims":2,"report":"In front of the temple","time":"05:30 AM","priv":"Pattu sariga Duppata, Blouse piece, 2 Vadas, 2 Laddus and carry bag.","freq":"Annual / Seasonal","stype":"Vastralankara (Vesture)"},{"id":95,"name":"Abhishekam Dhanurmasam","amount":500,"pilgrims":1,"report":"In front of the temple","time":"05:30 AM","priv":"Laddu","freq":"Annual / Seasonal","stype":"Abhishekam (Sacred Bath)"},{"id":96,"name":"Pushpanjali Seva Dhanurmasam","amount":300,"pilgrims":1,"report":"In front of the temple","time":"07:00 AM","priv":"Vada, Laddu","freq":"Annual / Seasonal","stype":"Archana / Puja"},{"id":98,"name":"Suprabhatham (Thaimasam Friday)","amount":50,"pilgrims":1,"report":"In front of the temple","time":"02:30 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":102,"name":"Pavitrotsavam (First Day)","amount":750,"pilgrims":1,"report":"In front of the temple","time":"08:00 AM","priv":"2 Laddus, 2 Vadas & Carry bag.","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":103,"name":"Pavitrotsavam (Second Day)","amount":750,"pilgrims":1,"report":"In front of the temple","time":"10:30 AM","priv":"2 Laddus, 2 Vadas & Carry bag.","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":104,"name":"Pavitrotsavam (Third Day)","amount":750,"pilgrims":1,"report":"In front of the temple","time":"06:30 AM","priv":"2 Laddus, 2 Vadas & Carry bag.","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":105,"name":"Suprabhatham (Chandra Grahanam)","amount":50,"pilgrims":1,"report":"In front of the temple","time":"02:00 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":106,"name":"Suprabhatham Dhanurmasam (Thursday and Friday)","amount":50,"pilgrims":1,"report":"GATE NO.2","time":"02:30 AM","priv":null,"freq":"Annual / Seasonal","stype":"Suprabhatam (Awakening)"},{"id":108,"name":"Abhishekam (Vasanthotsavam)","amount":500,"pilgrims":1,"report":"In front of the temple","time":"04:00 AM","priv":"Laddu","freq":"Annual / Seasonal","stype":"Abhishekam (Sacred Bath)"},{"id":109,"name":"Vastralankara Seva (Vasanthotsavam)","amount":10000,"pilgrims":2,"report":"In front of the temple","time":"04:00 AM","priv":"Pattu sariga Duppata, Blouse piece, 2 Vadas, 2 Laddus and carry bag.","freq":"Annual / Seasonal","stype":"Vastralankara (Vesture)"}],"deity":"Sri Padmavathi Ammavaru (Goddess Lakshmi)","desc":"The consort of Lord Venkateswara at Tiruchanoor. Tradition holds a Tirumala pilgrimage is incomplete without darshan of Ammavaru here first. Richest seva menu after Tirumala."},{"id":5,"temple":"Sri KalyanaVenkateswaraSwamy Temple","location":"Srinivasamangapuram","shortName":"SKVST","sevas":[{"id":29,"name":"Kalyanotsavam","amount":500,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"10:00 AM","priv":"Upper Cloth, Blouse Piece, Appam","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":30,"name":"Kalyana Kankanam","amount":20,"pilgrims":1,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"11:00 AM","priv":null,"freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":31,"name":"Veda Ashirvachanam","amount":500,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"07:30 AM","priv":"Upper Cloth, Blouse Piece","freq":"Daily","stype":"Veda Ashirvachanam"},{"id":32,"name":"Swarna Pushpaarchana","amount":516,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"09:00 AM","priv":"Upper Cloth, Blouse Piece, Seera Prasadam","freq":"Daily","stype":"Archana / Puja"},{"id":33,"name":"Astothara Satha Kalasabhishekam","amount":516,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"08:00 AM","priv":"Upper Cloth, Blouse Piece, Pongal Prasadam","freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":34,"name":"Thiruppavada","amount":516,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"09:00 AM","priv":"Upper Cloth, Blouse Piece, Jilebi, Thenthola","freq":"Daily","stype":"Thiruppavada (Food Offering)"},{"id":35,"name":"Abhishekam to Moolavaru","amount":500,"pilgrims":1,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"05:00 AM","priv":"Poli, Annaprasadams","freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":36,"name":"Vasthralankara Seva","amount":7000,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"05:00 AM","priv":"Pattu Sariga Duppata, Blouse Piece, poli","freq":"Daily","stype":"Vastralankara (Vesture)"},{"id":39,"name":"Pavithrotsavam","amount":516,"pilgrims":2,"report":"Ticket counter, SKVS Temple","time":"09:30 AM","priv":"one pavitram, one blouse, one upper and Annaprasadam","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":63,"name":"Vasthralankara Seva (3:30 AM)","amount":7000,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"03:00 AM","priv":"Pattu Sariga Duppata, Blouse Piece, poli","freq":"Daily","stype":"Vastralankara (Vesture)"},{"id":64,"name":"Vasthralankara Seva (4:00 AM)","amount":7000,"pilgrims":2,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"03:30 AM","priv":"Pattu Sariga Duppata, Blouse Piece, poli","freq":"Daily","stype":"Vastralankara (Vesture)"},{"id":65,"name":"Abhishekam to Moolavaru (3:30 AM)","amount":500,"pilgrims":1,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"03:00 AM","priv":"Poli, Annaprasadams","freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":66,"name":"Abhishekam to Moolavaru (4:00 AM)","amount":500,"pilgrims":1,"report":"Inside Sri Kalyana Venkatestwara Swamy Temple","time":"03:30 AM","priv":"Poli, Annaprasadams","freq":"Daily","stype":"Abhishekam (Sacred Bath)"}],"deity":"Sri Kalyana Venkateswara Swamy","desc":"At Srinivasamangapuram, 12 km from Tirupati — where the Lord is believed to have stayed after His celestial wedding. Famous for Kalyanotsavam and Vastralankara sevas."},{"id":6,"temple":"Sri Prasanna Venkateswara Swamy Temple","location":"Appalayagunta","shortName":"Sri PVST","sevas":[{"id":41,"name":"Abhishekam","amount":30,"pilgrims":1,"report":"Near to the office inside the temple","time":"06:30 AM","priv":null,"freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":42,"name":"Vastralankarana Seva","amount":3000,"pilgrims":2,"report":"Near to the office inside the temple","time":"06:30 AM","priv":"Upper Cloth and Blouse Piece","freq":"Daily","stype":"Vastralankara (Vesture)"},{"id":43,"name":"Kalyanotsavam","amount":300,"pilgrims":2,"report":"Near to the office inside the temple","time":"10:00 AM","priv":"Upper Cloth and Blouse Piece","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":44,"name":"Astadala Padapadmaradhana","amount":300,"pilgrims":2,"report":"Near to the office inside the temple","time":"07:30 AM","priv":"Upper Cloth and Blouse Piece","freq":"Daily","stype":"Padma Aradhana"},{"id":45,"name":"Astothara Satakalishabhishekam","amount":516,"pilgrims":2,"report":"Near to the office inside the temple","time":"07:30 AM","priv":"Upper Cloth and Blouse Piece","freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":46,"name":"Arjitha Kalyanotsavam","amount":500,"pilgrims":2,"report":"SPVST","time":"04:00 PM","priv":"1 Upper Cloth, 1 Blouse Piece, 1 Appam and 1 Sri PAT, Tiruchanoor Laddu","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":85,"name":"Vastralankarana Seva (Pavitrotsavams)","amount":3000,"pilgrims":2,"report":"Near to the office inside the temple","time":"06:00 AM","priv":"Upper Cloth and Blouse Piece","freq":"Annual / Seasonal","stype":"Vastralankara (Vesture)"},{"id":86,"name":"Abhishekam (Pavitrotsavams)","amount":30,"pilgrims":1,"report":"Near to the office inside the temple","time":"06:00 AM","priv":null,"freq":"Annual / Seasonal","stype":"Abhishekam (Sacred Bath)"}],"deity":"Sri Prasanna Venkateswara Swamy","desc":"Appalayagunta — the Lord in a calm, boon-granting (prasanna) posture, having blessed sage Siddheswara. Popular for Kalyanotsavam."},{"id":7,"temple":"Surya Narayana Swamy Temple","location":"Tiruchanoor","shortName":"Sri SNST","sevas":[{"id":47,"name":"Abhishekam to Moolavarlu","amount":30,"pilgrims":1,"report":"In front of Ammavari Koneru, Surya Narayana Swamy Temple","time":"06:30 AM","priv":null,"freq":"Daily","stype":"Abhishekam (Sacred Bath)"}],"deity":"Sri Surya Narayana Swamy","desc":"Sun-god temple at Tiruchanoor, near Ammavari Koneru. Daily Moolavarlu abhishekam."},{"id":8,"temple":"Srinivasa Temple","location":"Tiruchanoor","shortName":"ST","sevas":[{"id":48,"name":"Abhishekam to Moolavarlu","amount":30,"pilgrims":1,"report":"Back side of Z.P High School, Srinivasa Temple","time":"07:30 AM","priv":null,"freq":"Daily","stype":"Abhishekam (Sacred Bath)"}],"deity":"Sri Srinivasa","desc":"Srinivasa temple at Tiruchanoor (near Z.P. High School). Daily abhishekam to the Moolavar."},{"id":9,"temple":"Sri Kalyana Venkateswara Swamy Temple","location":"Narayanavanam","shortName":"Sri KVST","sevas":[{"id":49,"name":"Kalyanotsavam","amount":500,"pilgrims":2,"report":"In front of the temple","time":"10:00 AM","priv":"Upper Cloth, Blouse Piece, Annaprasadams","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":51,"name":"Abhishekam to Sri Kalyana Venkateswara Swamy Varu","amount":30,"pilgrims":1,"report":"In front of the temple","time":"06:30 AM","priv":null,"freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":52,"name":"Abhishekam to Sri Padmavathi Ammavaru","amount":30,"pilgrims":1,"report":"In front of the temple","time":"07:30 AM","priv":null,"freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":56,"name":"Astadalapada padmaradhana","amount":10,"pilgrims":1,"report":"In front of the temple","time":"09:45 AM","priv":null,"freq":"Daily","stype":"Padma Aradhana"}],"deity":"Sri Kalyana Venkateswara Swamy","desc":"Narayanavanam — the site of the Lord’s wedding to Sri Padmavathi. Kalyanotsavam and abhishekams offered here."},{"id":10,"temple":"Sri KodandaRamaSwamy Temple","location":"Vontimitta","shortName":"Sri KRST-V","sevas":[{"id":53,"name":"Abhishekam on Saturday","amount":150,"pilgrims":2,"report":"Sri Kodanda Rama Swamy Temple","time":"5:30 AM","priv":null,"freq":"Weekly","stype":"Abhishekam (Sacred Bath)"},{"id":54,"name":"Kalyanotsavam on Pournami day","amount":1000,"pilgrims":2,"report":"Sri Kodanda Rama Swamy Temple","time":"9:00 AM","priv":"One PS Dupatta and blouse piece","freq":"Monthly","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":55,"name":"Swarna Pushpaarchana on Sunday","amount":250,"pilgrims":1,"report":"Sri Kodanda Rama Swamy Temple","time":"8:00 AM","priv":"One Laddu prasadam","freq":"Weekly","stype":"Archana / Puja"}],"deity":"Sri Kodanda Rama Swamy","desc":"Vontimitta (Kadapa dist.) — one of the largest single-stone Rama temples, famed for its annual Sri Rama Navami Kalyanam. Sevas on Saturday, Sunday and Pournami."},{"id":11,"temple":"Sri Kodanda Rama Swamy Temple","location":"Tirupathi","shortName":"Sri KRST-T","sevas":[{"id":67,"name":"Pushpayagam","amount":1000,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"3:30 PM","priv":"1 Upper Cloth,1 Blouse Piece","freq":"Annual / Seasonal","stype":"Homam / Yagam"},{"id":72,"name":"Spl. Abhishekam to Moolavarulu","amount":2500,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple","time":"1:30 AM","priv":null,"freq":"Daily","stype":"Abhishekam (Sacred Bath)"},{"id":73,"name":"Special Kalyanotsavam","amount":1000,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple","time":"5:30 PM","priv":"1 blouse piece,1 upper cloth,1 laddu","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":74,"name":"Pattabishekam","amount":1000,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple","time":"5:30 PM","priv":"1 blouse piece,1 upper cloth,1 vada","freq":"Annual / Seasonal","stype":"Special Seva"},{"id":78,"name":"Kalyanotsavam (Punarvasu)","amount":500,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"10:30 AM","priv":"1 Upper Cloth,1 Blouse Piece","freq":"Weekly","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":79,"name":"Sahasra Kalasabhisekham (Amavasya Day)","amount":500,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"08:00 AM","priv":"1 Upper Cloth,1 Blouse Piece","freq":"Monthly","stype":"Abhishekam (Sacred Bath)"},{"id":80,"name":"Ashtothara SathaKalasabhisekham (Pournami Day)","amount":50,"pilgrims":1,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"09:00 AM","priv":null,"freq":"Monthly","stype":"Abhishekam (Sacred Bath)"},{"id":81,"name":"Moolavarala Abhisekham","amount":20,"pilgrims":1,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"05:30 AM","priv":null,"freq":"Daily","stype":"Special Seva"},{"id":84,"name":"Pavithrotsavam","amount":500,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"10:30 AM","priv":"1 Blouse piece,1 Upper cloth, 1 Pavithram","freq":"Annual / Seasonal","stype":"Utsavam (Festival)"},{"id":97,"name":"Vaikunta Dwadasi SPL Abhishekam","amount":2500,"pilgrims":2,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"03:30 AM","priv":null,"freq":"Annual / Seasonal","stype":"Abhishekam (Sacred Bath)"},{"id":99,"name":"Moolavarala Abhisekham (Bramhosathavam)","amount":20,"pilgrims":1,"report":"Sri Kodanda Ramaswamy Temple, Mahadwaram","time":"4:00 AM","priv":null,"freq":"Daily","stype":"Special Seva"}],"deity":"Sri Kodanda Rama Swamy","desc":"Historic Rama temple in Tirupati town (Mahadwaram). Rich seva menu — abhishekams, kalyanotsavam, pattabhishekam and lunar-day sevas."},{"id":12,"temple":"Sri Chennakeshava Swamy Temple","location":"Thallapaka","shortName":"Sri CST","sevas":[{"id":82,"name":"Arjitha Kalyanotsavam","amount":300,"pilgrims":2,"report":"Sri Chennakeshava Swamy Temple Office","time":"04:30 PM","priv":"1 Upper, 1 Blouse piece and 1 Laddu and 1 Appam of PAT along with small quantity of Anna prasadams\n","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"}],"deity":"Sri Chennakeshava Swamy","desc":"Thallapaka — birthplace of the saint-composer Annamacharya. Arjitha Kalyanotsavam offered."},{"id":13,"temple":"Sri Venugopala Swamy Temple","location":"Karvetinagaram","shortName":"Sri VST","sevas":[{"id":100,"name":"Arjitha Kalyanothsavam","amount":750,"pilgrims":2,"report":"Sri Venugopala Swamy Temple","time":"04:00 PM","priv":"1 Upper cloth, 1 Blouse piece, 1 Laddu, 1 Appam, 1 Cover/Bag With Anna Prasadam","freq":"Daily","stype":"Kalyanotsavam (Celestial Wedding)"},{"id":101,"name":"Sri Varamahalakshmi Vratham","amount":500,"pilgrims":2,"report":"Sri Venugopala Swamy Temple","time":"09:30 AM","priv":"1 Upper cloth, 1 Blouse piece, 1 Laddu, 1 Appam, 1 Cover/Bag","freq":"Annual / Seasonal","stype":"Vratham"},{"id":107,"name":"Arjitha Kalyanotsavam (SriRamula Vari Kalyanam)","amount":500,"pilgrims":2,"report":"Sri Venugopala Swamy Temple","time":"03:30 PM","priv":"1 Upper cloth, 1 Blouse piece, 1 Laddu, 1 Small Vada, 1 Cover/Bag ","freq":"Annual / Seasonal","stype":"Kalyanotsavam (Celestial Wedding)"}],"deity":"Sri Venugopala Swamy","desc":"Karvetinagaram — Krishna as Venugopala. Kalyanotsavam and Varamahalakshmi Vratham offered."}];
+
+const RULES = [
+ "Aadhaar card for Indian citizens, and Passport with a valid Visa for NRI pilgrims, are accepted for registration.",
+ "Registration is allowed only if the same Seva has not been availed within the last 180 days.",
+ "Seva-allotted pilgrims are not allowed to avail the Seva again for the next 180 days from the seva date.",
+ "Selection of a seva does not imply booking confirmation — the ticket is blocked only after entering pilgrim details and clicking Pay Now, subject to availability at that instant.",
+ "Seva tickets are allotted by a random computerised lucky-DIP process; the selected pilgrim list is published on the website.",
+ "Selected pilgrims must pay within the given timeframe by logging into ttdevasthanams.ap.gov.in (eDIP module or transaction history).",
+ "Modifications are not allowed once the form is submitted. TTD may cancel registrations made multiple times by the same person.",
+ "All bookings are final — postponement, advancement, cancellation and refund are not allowed.",
+ "Tickets are non-transferable and biometrically verified; carry the original ID used at booking.",
+ "A maximum of 10 laddus is allowed per ticket/booking (where extra laddu is offered).",
+ "Homam participants (Sri Srinivasa Divyaanugraha Homam) may use Srivari Special Entry Darshan (₹300) at Tirumala on the seva day at 3:00 PM after validating the seva ticket.",
+ "Passport option applies to NRIs only; documents are verified at the time of availing the seva/darshan.",
+ "Work-authorisation holders, H1B / equivalent visas and Green-Card holders are allowed under the NRI category.",
+ "Visit, Student, Transit, Business, Medical and Tourist visas are NOT allowed under the NRI category.",
+ "Foreign nationals are allowed on submission of their country's passport; non-Hindus give a declaration at the Vaikuntam Queue Complex for darshan entry.",
+ "The entire registration and allotment process is published on the portal for transparency. Legal jurisdiction: Tirupati / High Court of Andhra Pradesh only."
+];
+
+const $=s=>document.querySelector(s);
+const state={temple:'all',persons:1,freq:'',stype:'',search:''};
+
+function inr(n){return '₹'+n.toLocaleString('en-IN');}
+
+function ticketsFor(seva,persons){
+  const per=seva.pilgrims||1;
+  return Math.ceil(persons/per);
+}
+function costFor(seva,persons){
+  return ticketsFor(seva,persons)*(seva.amount||0);
+}
+function freqTag(f){
+  if(f==='Daily')return '<span class="tag tag-daily">Daily</span>';
+  if(f==='Weekly')return '<span class="tag tag-weekly">Weekly</span>';
+  if(f==='Monthly')return '<span class="tag tag-monthly">Monthly</span>';
+  return '<span class="tag tag-annual">Annual / Seasonal</span>';
+}
+const COUPLE_TYPES=['Kalyanotsavam (Celestial Wedding)','Vratham','Veda Ashirvachanam'];
+
+function matches(seva){
+  if(state.freq && seva.freq!==state.freq)return false;
+  if(state.stype && seva.stype!==state.stype)return false;
+  if(state.search){
+    const q=state.search.toLowerCase();
+    if(!(seva.name.toLowerCase().includes(q)||seva.stype.toLowerCase().includes(q)||(seva.report||'').toLowerCase().includes(q)))return false;
+  }
+  return true;
+}
+
+function render(){
+  const temples = state.temple==='all' ? DATA : DATA.filter(t=>String(t.id)===state.temple);
+  let html='';
+  let totalSevas=0, minCost=Infinity, maxCost=0, templeCount=0;
+
+  temples.forEach(t=>{
+    const sevas=t.sevas.filter(matches);
+    if(!sevas.length)return;
+    templeCount++;
+    html+=`<div class="temple-card">
+      <span class="tct">${t.sevas.filter(matches).length} matching · ${t.sevas.length} total sevas</span>
+      <h2>${t.temple}</h2>
+      <div class="loc">📍 ${t.location}${t.shortName?' · '+t.shortName:''}</div>
+      ${t.deity?`<div class="deity">Deity: ${t.deity}</div>`:''}
+      ${t.desc?`<div class="desc">${t.desc}</div>`:''}
+    </div>`;
+    html+=`<div class="tbl-wrap"><table><thead><tr>
+      <th style="min-width:170px">Seva</th>
+      <th style="min-width:100px">Frequency</th>
+      <th style="min-width:150px">Category</th>
+      <th style="min-width:120px">Cost for ${state.persons} ${state.persons==1?'person':'persons'}</th>
+      <th style="min-width:110px">Per Ticket</th>
+      <th style="min-width:150px">Reporting Point</th>
+      <th style="min-width:80px">Time</th>
+      <th style="min-width:180px">Prasadam / Privileges</th>
+    </tr></thead><tbody>`;
+
+    sevas.forEach(s=>{
+      totalSevas++;
+      const cost=costFor(s,state.persons);
+      const tickets=ticketsFor(s,state.persons);
+      minCost=Math.min(minCost,cost); maxCost=Math.max(maxCost,cost);
+      const isFree=(s.amount||0)===0;
+      const couple=COUPLE_TYPES.includes(s.stype)&&s.pilgrims===2;
+      html+=`<tr>
+        <td><span class="seva-name">${s.name}</span></td>
+        <td>${freqTag(s.freq)}</td>
+        <td><span class="tag tag-type">${s.stype}</span></td>
+        <td><span class="cost-big${isFree?' free':''}">${isFree?'Free':inr(cost)}</span>
+            <span class="cost-note">${tickets} ticket${tickets>1?'s':''} × ${inr(s.amount||0)}${tickets>1?' each':''}</span></td>
+        <td><span class="persons-pill">${s.pilgrims} pilgrim${s.pilgrims>1?'s':''}/ticket</span>
+            ${couple?'<span class="couple-flag">couple seva</span>':''}</td>
+        <td><span class="report-loc">${s.report||'—'}</span></td>
+        <td><span class="report-time">${s.time||'—'}</span></td>
+        <td>${s.priv?`<span class="priv">${s.priv}</span>`:'<span class="priv no-priv">Darshan &amp; participation</span>'}</td>
+      </tr>`;
+    });
+    html+='</tbody></table></div>';
+  });
+
+  if(!html){
+    html='<div class="empty"><b>No sevas match your filters</b>Try widening the frequency or category, or clearing the search box.</div>';
+    minCost=0;maxCost=0;
+  }
+  $('#results').innerHTML=html;
+
+  // summary
+  const cr = totalSevas? (minCost===maxCost?inr(minCost):inr(minCost)+' – '+inr(maxCost)) : '—';
+  $('#summary').innerHTML=`
+    <div class="stat"><b>${templeCount}</b><span>Temple${templeCount!=1?'s':''}</span></div>
+    <div class="stat"><b>${totalSevas}</b><span>Matching Sevas</span></div>
+    <div class="stat"><b>${state.persons}</b><span>Pilgrim${state.persons>1?'s':''}</span></div>
+    <div class="stat"><b style="font-size:0.95rem">${cr}</b><span>Cost range (party of ${state.persons})</span></div>`;
+}
+
+function buildControls(){
+  const tsel=$('#temple');
+  tsel.innerHTML='<option value="all">All temples ('+DATA.reduce((a,t)=>a+t.sevas.length,0)+' sevas)</option>'+
+    DATA.map(t=>`<option value="${t.id}">${t.temple} — ${t.location} (${t.sevas.length})</option>`).join('');
+  const types=[...new Set(DATA.flatMap(t=>t.sevas.map(s=>s.stype)))].sort();
+  $('#stype').innerHTML='<option value="">All categories</option>'+types.map(x=>`<option value="${x}">${x}</option>`).join('');
+  $('#rulesA').innerHTML=RULES.slice(0,8).map(r=>`<li>${r}</li>`).join('');
+  $('#rulesB').innerHTML=RULES.slice(8).map(r=>`<li>${r}</li>`).join('');
+}
+
+// events
+document.addEventListener('DOMContentLoaded',()=>{
+  buildControls();
+  $('#temple').addEventListener('change',e=>{state.temple=e.target.value;render();});
+  $('#freq').addEventListener('change',e=>{state.freq=e.target.value;render();});
+  $('#stype').addEventListener('change',e=>{state.stype=e.target.value;render();});
+  $('#search').addEventListener('input',e=>{state.search=e.target.value.trim();render();});
+  document.querySelectorAll('#persons button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('#persons button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');state.persons=parseInt(b.dataset.p);render();
+    });
+  });
+  $('#reset').addEventListener('click',()=>{
+    state.temple='all';state.persons=1;state.freq='';state.stype='';state.search='';
+    $('#temple').value='all';$('#freq').value='';$('#stype').value='';$('#search').value='';
+    document.querySelectorAll('#persons button').forEach((x,i)=>x.classList.toggle('active',i===0));
+    render();
+  });
+  render();
+});
+</script>
+</body>
+</html>
