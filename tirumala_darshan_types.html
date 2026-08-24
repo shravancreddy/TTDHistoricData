@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tirumala Darshan — Complete Reference Guide 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+:root {
+  --gold:#c8973a; --gold-light:#e8b96a; --saffron:#e07b20;
+  --red:#8b1a1a; --red-light:#b52020;
+  --cream:#fdf8f0; --cream-dark:#f0e6d0;
+  --ink:#1a1208; --ink-mid:#3d2e12; --ink-light:#6b5230;
+  --border:rgba(200,151,58,0.25);
+  --shadow:0 2px 16px rgba(26,18,8,0.12);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Source Sans 3',Georgia,serif; font-size:13px; line-height:1.5; background:var(--cream); color:var(--ink); }
+
+.masthead { background:linear-gradient(160deg,#1a0a00 0%,#3d1a00 50%,#1a0a00 100%); padding:30px 40px 22px; position:relative; overflow:hidden; }
+.masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(200,151,58,0.04) 20px,rgba(200,151,58,0.04) 22px); }
+.masthead-inner { position:relative; z-index:1; max-width:1700px; margin:0 auto; }
+.temple-name { font-family:'Cinzel',serif; font-size:1.85rem; color:var(--gold-light); font-weight:700; letter-spacing:0.04em; line-height:1.15; }
+.temple-sub  { font-family:'Cinzel',serif; font-size:0.78rem; color:rgba(232,185,106,0.6); letter-spacing:0.12em; margin-top:4px; text-transform:uppercase; }
+.guide-title { font-family:'Cinzel',serif; font-size:0.92rem; color:var(--gold); margin-top:12px; letter-spacing:0.06em; border-top:1px solid rgba(200,151,58,0.3); padding-top:10px; }
+
+.legend-bar { background:var(--cream-dark); border-bottom:2px solid var(--border); padding:9px 40px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; font-size:0.74rem; }
+.legend-item { display:flex; align-items:center; gap:5px; }
+.dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; border:1.5px solid rgba(0,0,0,0.15); }
+.dot-free{background:#2d6a4f;} .dot-paid{background:var(--saffron);} .dot-vip{background:var(--red);}
+.dot-special{background:#2c5282;} .dot-seva{background:#553c9a;} .dot-arjita{background:#744210;}
+
+.container { max-width:1700px; margin:0 auto; padding:22px 14px 60px; }
+
+.section-title { font-family:'Cinzel',serif; font-size:0.67rem; color:var(--ink-light); text-transform:uppercase; letter-spacing:0.12em; margin:26px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
+.section-title::before { content:'◆'; color:var(--gold); font-size:0.56rem; }
+
+.tbl-wrap { width:100%; overflow-x:auto; border-radius:10px; border:1px solid var(--border); box-shadow:var(--shadow); margin-bottom:4px; }
+table { width:100%; border-collapse:collapse; font-size:0.78rem; }
+thead tr { background:linear-gradient(90deg,#1a0a00,#2e1200); }
+th { font-family:'Cinzel',serif; font-weight:600; font-size:0.58rem; letter-spacing:0.07em; color:var(--gold-light); padding:8px 9px; text-align:left; white-space:nowrap; border-right:1px solid rgba(200,151,58,0.15); }
+th:last-child { border-right:none; }
+tbody tr { border-bottom:1px solid rgba(200,151,58,0.12); transition:background .12s; }
+tbody tr:last-child { border-bottom:none; }
+tbody tr:hover { background:rgba(200,151,58,0.07); }
+tbody tr:nth-child(even) { background:rgba(200,151,58,0.025); }
+tbody tr:nth-child(even):hover { background:rgba(200,151,58,0.08); }
+td { padding:8px 9px; vertical-align:top; border-right:1px solid rgba(200,151,58,0.08); line-height:1.48; }
+td:last-child { border-right:none; }
+
+.tag { display:inline-block; font-size:0.6rem; font-weight:700; padding:2px 6px; border-radius:20px; letter-spacing:0.04em; white-space:nowrap; }
+.tag-free    { background:#d4edda; color:#1a4a2a; border:1px solid #2d6a4f; }
+.tag-paid    { background:#ffe4c4; color:#7a3800; border:1px solid #c05621; }
+.tag-vip     { background:#fde8e8; color:#7a0000; border:1px solid #8b1a1a; }
+.tag-special { background:#dbeafe; color:#1e3a5f; border:1px solid #2c5282; }
+.tag-seva    { background:#ede9fe; color:#3b1a6e; border:1px solid #553c9a; }
+.tag-arjita  { background:#fef3c7; color:#5a3000; border:1px solid #c07020; }
+
+.cost-val  { font-weight:700; color:var(--ink-mid); }
+.cost-free { font-weight:700; color:#2d6a4f; }
+.cost-note { font-size:0.68rem; color:var(--ink-light); display:block; margin-top:2px; }
+
+.wait-pill { display:inline-block; font-size:0.67rem; padding:2px 6px; border-radius:4px; font-weight:600; white-space:nowrap; }
+.wait-fast { background:#d4edda; color:#1a4a2a; }
+.wait-med  { background:#fff3cd; color:#5a3a00; }
+.wait-slow { background:#fde8e8; color:#7a0000; }
+
+.chip { font-size:0.58rem; padding:2px 5px; border-radius:4px; font-weight:600; white-space:nowrap; display:inline-block; margin:1px 1px 1px 0; }
+.chip-web     { background:#dbeafe; color:#1e40af; }
+.chip-counter { background:#f3f4f6; color:#374151; }
+.chip-airport { background:#fef3c7; color:#6b4c00; }
+.chip-walk    { background:#d1fae5; color:#065f46; }
+.chip-donor   { background:#ede9fe; color:#4c1d95; }
+
+.url { font-size:0.65rem; color:#2c5282; word-break:break-all; display:block; margin-top:2px; }
+.row-type-label { font-family:'Cinzel',serif; font-size:0.7rem; font-weight:700; }
+.entry-loc strong { color:var(--red); font-weight:700; display:block; margin-bottom:1px; font-size:0.75rem; }
+
+.restrict .r-item { margin-bottom:4px; padding-bottom:4px; border-bottom:1px solid rgba(200,151,58,0.1); }
+.restrict .r-item:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.r-lbl { font-size:0.57rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-light); display:block; margin-bottom:1px; }
+.r-warn { color:#7a0000; font-style:italic; }
+.r-ok   { color:#1a4a2a; font-style:italic; }
+
+.dress-box { background:rgba(200,151,58,0.07); border:1px solid rgba(200,151,58,0.3); border-radius:6px; padding:8px 12px; font-size:0.75rem; margin:8px 0 0; }
+.dress-box strong { color:var(--ink-mid); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px; }
+
+.footnotes { margin-top:26px; padding:14px 18px; background:var(--cream-dark); border:1px solid var(--border); border-radius:8px; font-size:0.74rem; color:var(--ink-light); line-height:1.65; }
+.footnotes h3 { font-family:'Cinzel',serif; font-size:0.65rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:9px; }
+.footnotes ul { padding-left:16px; }
+.footnotes li { margin-bottom:5px; }
+.footnotes a { color:var(--red-light); text-decoration:none; }
+.footnotes a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="temple-name">Sri Venkateswara Swamy Temple, Tirumala</div>
+    <div class="temple-sub">Managed by Tirumala Tirupati Devasthanams (TTD) · Tirumala Hills, Andhra Pradesh</div>
+    <div class="guide-title">Complete Darshan Modes Reference Guide — 2026 &nbsp;·&nbsp; Restrictions, Eligibility &amp; Evidence Requirements</div>
+  </div>
+</div>
+
+<div class="legend-bar">
+  <strong style="font-family:Cinzel,serif;font-size:0.66rem;color:#3d2e12;letter-spacing:0.06em;">Category:</strong>
+  <span class="legend-item"><span class="dot dot-free"></span>Free</span>
+  <span class="legend-item"><span class="dot dot-paid"></span>Paid</span>
+  <span class="legend-item"><span class="dot dot-vip"></span>VIP / Donor</span>
+  <span class="legend-item"><span class="dot dot-special"></span>Special Categories</span>
+  <span class="legend-item"><span class="dot dot-seva"></span>Arjita Seva (incl. darshan)</span>
+  <span class="legend-item"><span class="dot dot-arjita"></span>Ritual Seva</span>
+  <span style="margin-left:auto;font-size:0.68rem;color:#6b5230;"><b>Children &lt;12</b> — free entry on all categories with parent. Carry age proof (birth cert / school ID).</span>
+</div>
+
+<div class="container">
+
+<!-- ═══════ DRESS CODE BOX ═══════ -->
+<div class="dress-box" style="margin-bottom:12px;">
+  <strong>🧥 Mandatory Dress Code — All Darshans &amp; Queue Lines</strong>
+  <span style="color:var(--ink);">Confirmed from TTD booking portal source: <b>Male: Dhoti, Shirt</b> &nbsp;/&nbsp; <b>Female: Saree / Half Saree / Chudidar with Dupatta.</b> &nbsp; Western casuals (shorts, jeans, sleeveless tops) are not permitted inside queue complexes, Mada Streets, or the temple. Footwear not permitted in queue lines, Mada Streets, or inside the temple at any time.</span>
+</div>
+
+<!-- ══════════════════════ 1. FREE ══════════════════════ -->
+<div class="section-title">Free &amp; Walk-In Darshans</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:130px">Mode / Type</th><th>Cat.</th>
+  <th style="min-width:90px">Cost</th><th style="min-width:100px">People Allowed</th>
+  <th style="min-width:110px">Timings / Slots</th><th style="min-width:90px">Wait Time (Darshan)</th>
+  <th style="min-width:135px">Queue / Entry Point (Tirumala)</th>
+  <th style="min-width:100px">Where to Book</th><th style="min-width:100px">Website / Method</th>
+  <th style="min-width:200px">Restrictions &amp; Eligibility</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td>1</td>
+  <td><span class="row-type-label">Sarva Darshan</span><br><small style="color:#6b5230">General free queue</small></td>
+  <td><span class="tag tag-free">FREE</span></td>
+  <td><span class="cost-free">₹0</span><span class="cost-note">1 free laddu after depositing token</span></td>
+  <td>Unlimited. No ticket for any age.</td>
+  <td>Open throughout temple hours (~6 AM – 6 PM most days). No fixed slot.</td>
+  <td><span class="wait-pill wait-slow">4–18 hrs</span><br><small>Weekday 4–8 hrs. Weekends / holidays 10–18 hrs</small></td>
+  <td class="entry-loc"><strong>VQC-2 (Vaikuntam Queue Complex 2)</strong>Or Sudarshan Queue Complex. Wait in compartments.</td>
+  <td>No booking. Walk in anytime.</td>
+  <td><span class="chip chip-counter">On arrival only.</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">None — avail any number of times.</span></div>
+    <div class="r-item"><span class="r-lbl">Age / ID</span>All ages. Children &lt;12 free. Aadhaar checked at Tirumala entry gate (police checkpoint).</div>
+    <div class="r-item"><span class="r-lbl">Restriction</span><span class="r-warn">Footwear not permitted in queue lines, Mada Streets, or temple.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td><span class="row-type-label">SSD — Slotted Sarva Darshan</span><br><small style="color:#6b5230">Time-slotted free token — same day only</small></td>
+  <td><span class="tag tag-free">FREE</span></td>
+  <td><span class="cost-free">₹0</span><span class="cost-note">1 free laddu (deposit token at Ladoo complex after darshan)</span></td>
+  <td>1 token per person. Non-transferable.</td>
+  <td>Multiple slots per day (e.g. 7 AM, 9 AM, 11 AM, 1 PM, 3 PM…). Report 30–45 min before slot at VQC-2, Tirumala.</td>
+  <td><span class="wait-pill wait-med">2–5 hrs</span><br><small>This is the darshan wait time after reporting. Weekday ~2 hrs; Weekend ~5 hrs.</small></td>
+  <td class="entry-loc"><strong>Token from 3 Tirupati city counters only:</strong>1. Srinivasam Complex (opp. Central Bus Stand)<br>2. Vishnu Nivasam (opp. Railway Station)<br>3. Bhudevi Complex (Alipiri Bus Stand)<br>→ Report to <b>VQC-2, Tirumala</b> at slot time.</td>
+  <td>Counter opens from 5 AM (may open midnight during peak rush). Same-day tokens only. ~20,000–25,000 tokens/day till exhausted. No online booking.</td>
+  <td><span class="chip chip-counter">3 Tirupati counters only. No online.</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">None.</span></div>
+    <div class="r-item"><span class="r-lbl">ID</span>Govt. photo ID (Aadhaar / Voter Card) required to collect token. Children &lt;12 free with adult.</div>
+    <div class="r-item"><span class="r-lbl">Transferability</span><span class="r-warn">Non-transferable — not even to family members.</span></div>
+    <div class="r-item"><span class="r-lbl">Rescheduling</span><span class="r-warn">Not allowed. Late arrival → join Sarva Darshan queue.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td><span class="row-type-label">Divya Darshan</span><br><small style="color:#6b5230">Footpath walkers only (Alipiri / Srivari Mettu)</small></td>
+  <td><span class="tag tag-free">FREE</span></td>
+  <td><span class="cost-free">₹0</span><span class="cost-note">2 small laddus as prasadam after darshan</span></td>
+  <td>1 biometric token per person. Non-transferable. Aadhaar mandatory.</td>
+  <td>Tokens issued at the same 3 Tirupati city counters (Srinivasam / Vishnu Nivasam / Bhudevi Complex) from 6 AM. Alipiri footpath: open 24×7 (children &lt;15 restricted to 5 AM–12 PM). Srivari Mettu: 6 AM – 6 PM.</td>
+  <td><span class="wait-pill wait-med">3–7 hrs total</span><br><small>Walk time: Alipiri ~3–5 hrs (9 km / ~3,550 steps); Srivari Mettu ~2–3 hrs (2.1 km). Then faster darshan queue than Sarva Darshan at temple.</small></td>
+  <td class="entry-loc"><strong>Token from 3 Tirupati counters</strong>Token is scanned at: Alipiri — Gali Gopuram (~step 2083); Srivari Mettu — 1240th step. Report beside <b>VQC-1, Tirumala</b> at stated slot time.</td>
+  <td>Collect token at Tirupati counters before walking. Alipiri: 10,000 tokens/day. Srivari Mettu: 5,000 tokens/day. No online booking.</td>
+  <td><span class="chip chip-walk">Walk footpath only. Token from Tirupati counters.</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Eligibility</span><span class="r-warn">Must walk the <em>entire</em> footpath. Token scanned mid-path to verify. Cannot skip any portion.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">None.</span></div>
+    <div class="r-item"><span class="r-lbl">ID</span>Aadhaar mandatory to collect token. Children &lt;12 free; carry birth cert.</div>
+    <div class="r-item"><span class="r-lbl">Transferability</span><span class="r-warn">Non-transferable — not even to family members.</span></div>
+    <div class="r-item"><span class="r-lbl">Children on footpath</span><span class="r-warn">Families with children under 15: restricted to 5 AM – 12 PM only (wildlife / safety).</span></div>
+  </td>
+</tr>
+
+</tbody></table></div>
+
+<!-- ══════════════════════ 2. PAID ══════════════════════ -->
+<div class="section-title">Paid / Online Advance Darshans</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:140px">Mode / Type</th><th>Cat.</th>
+  <th style="min-width:90px">Cost</th><th style="min-width:100px">People Allowed</th>
+  <th style="min-width:110px">Timings / Slots</th><th style="min-width:90px">Wait Time (Darshan)</th>
+  <th style="min-width:130px">Queue / Entry Point</th>
+  <th style="min-width:100px">Where to Book</th><th style="min-width:100px">Website / Method</th>
+  <th style="min-width:210px">Restrictions &amp; Eligibility</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td>4</td>
+  <td><span class="row-type-label">SED — Special Entry Darshan</span><br><small style="color:#6b5230">₹300 Seeghra Darshan</small></td>
+  <td><span class="tag tag-paid">PAID</span></td>
+  <td><span class="cost-val">₹300/person</span><span class="cost-note">2 free laddus included.</span></td>
+  <td>Up to 6 tickets per TTD login. Children &lt;12 free.</td>
+  <td>Multiple 1-hr slots: ~9 AM – 7 PM. Quota released ~22nd each month at 10 AM (3 months ahead).</td>
+  <td><span class="wait-pill wait-slow">3–6+ hrs</span><br><small>Wait time at VQC-1 after reporting. Weekday 3–4 hrs; Weekend 5–6+ hrs depending on crowd. This is darshan time, not ticket procurement time.</small></td>
+  <td class="entry-loc"><strong>SED Hall, VQC-1 (Vaikuntam Queue Complex 1)</strong>Report 30 min before slot time. Printed / e-ticket + original ID mandatory.</td>
+  <td>Online only (very high demand — book immediately on release). NRIs: walk-in at VQC-1 counter (Row 7).</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><div class="chip chip-web">Govinda app</div></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-warn">90 days between SED bookings per user (system enforced via Aadhaar + mobile number). Cannot book another SED within 90 days of last darshan date.</span></div>
+    <div class="r-item"><span class="r-lbl">ID</span>Aadhaar (Indians) / Passport (NRI / foreign). Pilgrim ID must match booking exactly.</div>
+    <div class="r-item"><span class="r-lbl">Cancellation</span><span class="r-warn">Not allowed. No refund, no rescheduling.</span></div>
+    <div class="r-item"><span class="r-lbl">Transferability</span><span class="r-warn">Non-transferable. Biometric check at VQC-1.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>5</td>
+  <td><span class="row-type-label">SED — Senior Citizen &amp; Divyang</span><br><small style="color:#6b5230">Elderly 65+ / Physically Challenged — separate quota</small></td>
+  <td><span class="tag tag-special">SPECIAL</span></td>
+  <td><span class="cost-val">₹300/person</span><span class="cost-note">Separate quota released at 3 PM (same day as general SED release). Darshan is free in some classifications — confirm at booking.</span></td>
+  <td>Senior devotee + spouse (any age). If 80+ or mobility-impaired: + 1 attendant. Grandchildren &lt;12: free. <em style="color:#7a0000">Friends, adult children, other relatives: NOT permitted under this quota.</em></td>
+  <td>2 daily slots: 10 AM and 3 PM (Mon–Sat). Friday: 3 PM only. Report 1 hr before slot. ~700–1,000 tickets/day total.</td>
+  <td><span class="wait-pill wait-fast">1–2 hrs</span><br><small>Dedicated short queue at Supatham. Wheelchair assistance available.</small></td>
+  <td class="entry-loc"><strong>Supatham Entrance</strong>or Tirumala Nambi Temple counter (S1 counter), Dakshin Mada Street. Carry printed ticket + Aadhaar.</td>
+  <td>Online advance booking only (walk-in counters no longer issue these). Quota released ~23rd each month at 3 PM (3 months ahead). Extremely competitive — sells in minutes.</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><span class="url">→ Senior Citizen / Differently Abled</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Age</span>Min. <b>65 years</b> on or before darshan date. Either spouse qualifying allows both to enter.</div>
+    <div class="r-item"><span class="r-lbl">Divyang — Disability</span><span class="r-warn">A valid <b>UDID card (Unique Disability ID)</b> or certificate from a <b>Govt. recognised Medical Board</b> is required. TTD does not publish a specific percentage threshold — a valid Govt-issued disability certificate is the accepted evidence. Physical / locomotor / visual impairments commonly covered.</span></div>
+    <div class="r-item"><span class="r-lbl">Evidence Required</span>Senior: Aadhaar / Passport / Voter ID proving age ≥65. Divyang: UDID card or Medical Board certificate. Medical case: treating doctor's certificate on letterhead with reg. no.</div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-warn"><b>90 days</b> between bookings. System enforced via Aadhaar + mobile. Cannot book again until 90 days from last darshan date.</span></div>
+    <div class="r-item"><span class="r-lbl">Cancellation</span><span class="r-warn">No cancellation, postponement, or advancement. Late arrival → slot forfeited → Sarva Darshan queue.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>6</td>
+  <td><span class="row-type-label">Medical / Patient Darshan</span><br><small style="color:#6b5230">Serious illness — booked under Senior/Divyang quota</small></td>
+  <td><span class="tag tag-special">SPECIAL</span></td>
+  <td><span class="cost-val">₹300</span><span class="cost-note">Booked under Differently Abled / Senior Citizen quota as "Medical Case" sub-category.</span></td>
+  <td>Patient + 1–2 attendants. Stretcher / wheelchair on TTD request.</td>
+  <td>Same slots as Senior Citizen (10 AM / 3 PM). Select "Medical Case" during booking.</td>
+  <td><span class="wait-pill wait-fast">30–60 min</span><br><small>Prioritised within Supatham lane. Ambulance route on prior request.</small></td>
+  <td class="entry-loc"><strong>Supatham Entrance</strong>Same as Senior Citizen. Ambulance-accessible route available by prior TTD arrangement.</td>
+  <td>Online booking under "Medical Case" in Differently Abled / Senior Citizen section. Present medical certificate at Supatham on day.</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><span class="url">→ Differently Abled / Medical Case</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Eligible Conditions</span>Conditions where standing in Sarva Darshan queue is medically unsafe. TTD booking portal categories include: Heart patients, Cancer patients, Cerebral palsy, Post-surgical recovery, Severe orthopaedic disability / spinal injuries, Neurological disorders. Condition list as available on the TTD booking page under the Medical Case dropdown — check for current list before booking.</div>
+    <div class="r-item"><span class="r-lbl">Evidence</span><span class="r-warn">Medical certificate from treating doctor on letterhead with reg. no. Govt. hospital certificate preferred. TTD may verify at entry.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-warn">90 days (same as Senior / Divyang quota).</span></div>
+    <div class="r-item"><span class="r-lbl">Cancellation</span><span class="r-warn">Not allowed.</span></div>
+  </td>
+</tr>
+
+</tbody></table></div>
+
+<!-- ══════════════════════ 3. SPECIAL CATEGORIES ══════════════════════ -->
+<div class="section-title">Special Categories — NRI, Defence, Infants, Newly Wed Couples</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:140px">Mode / Type</th><th>Cat.</th>
+  <th style="min-width:90px">Cost</th><th style="min-width:100px">People Allowed</th>
+  <th style="min-width:110px">Timings</th><th style="min-width:85px">Wait Time (Darshan)</th>
+  <th style="min-width:130px">Queue / Entry Point</th>
+  <th style="min-width:100px">How to Access</th><th style="min-width:100px">Website / Method</th>
+  <th style="min-width:210px">Restrictions &amp; Eligibility</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td>7</td>
+  <td><span class="row-type-label">NRI Darshan</span><br><small style="color:#6b5230">Non-Resident Indians &amp; Foreign Nationals</small></td>
+  <td><span class="tag tag-special">SPECIAL</span></td>
+  <td><span class="cost-val">₹300/person</span><span class="cost-note">Paid at VQC-1 counter on arrival after document verification. No online booking.</span></td>
+  <td>All accompanying persons must individually hold a valid foreign passport + visa. Indian-passport-only companions cannot use this lane.</td>
+  <td>12 PM – 6 PM daily at VQC-1.</td>
+  <td><span class="wait-pill wait-fast">2–4 hrs</span><br><small>Joins ₹300 SED queue at VQC-1 after counter clearance.</small></td>
+  <td class="entry-loc"><strong>VQC-1 (Vaikuntam Queue Complex 1)</strong>NRI counter at VQC-1 / Supatham area. Fill form at counter, submit documents, pay ₹300.</td>
+  <td>Walk-in only — no online booking. Present at VQC-1 NRI counter 12 PM – 6 PM with documents. Fill TTD NRI form on-site.</td>
+  <td><span class="chip chip-counter">VQC-1 counter on arrival. No online booking.</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Eligibility</span>Foreign passport holders: NRI / OCI / PIO / foreign nationals. <b>Student visas, visitor visas, and business visas</b> are accepted as long as the visa is valid and the India arrival was within 30 days. Visa type is not restricted — only the 30-day arrival window applies.</div>
+    <div class="r-item"><span class="r-lbl">Key Restriction</span><span class="r-warn">India arrival must be within <b>30 days</b> of darshan date. TTD staff verify the latest immigration entry stamp. Arrival &gt; 30 days = not eligible through NRI lane.</span></div>
+    <div class="r-item"><span class="r-lbl">Documents</span>Original foreign passport + valid visa / OCI card + immigration entry stamp (≤30 days). Fill TTD NRI form at counter.</div>
+    <div class="r-item"><span class="r-lbl">Companions</span><span class="r-warn">All members must individually have foreign passport + visa. Indian-passport-only family members (who are local) are NOT allowed through NRI lane — they must use SED or Sarva Darshan separately.</span></div>
+    <div class="r-item"><span class="r-lbl">Children</span>&lt;12: free, carry birth certificate + passport.</div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span>No stated cooldown.</div>
+  </td>
+</tr>
+
+<tr>
+  <td>8</td>
+  <td><span class="row-type-label">Defence / Army Personnel</span><br><small style="color:#6b5230">Indian Armed Forces special quota</small></td>
+  <td><span class="tag tag-special">SPECIAL</span></td>
+  <td><span class="cost-free">Free / ₹300</span><span class="cost-note">Confirm exact cost with TTD helpline on day of visit — subject to change without notice.</span></td>
+  <td>Serving personnel + family with valid dependent ID cards. All family members must have their own dependent cards.</td>
+  <td>No fixed published timing. Typically morning / afternoon slots. <span style="color:#7a0000;font-weight:700">Confirm with TTD helpline before travel.</span></td>
+  <td><span class="wait-pill wait-med">1–3 hrs</span><br><small>Dedicated quota lane when operational.</small></td>
+  <td class="entry-loc"><strong>Supatham Entrance / VQC-1</strong>Report with service ID + dependent cards for all family members.</td>
+  <td>No online booking. Walk-in at Tirumala with documents. <b>This quota can be cancelled on any day without notice based on crowd conditions.</b></td>
+  <td><span class="chip chip-counter">On arrival at Tirumala. No booking.</span><br><span class="url">Helpline: 1800-425-4141 / 155257</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Eligibility</span>Currently <b>serving</b> Indian Army / Navy / Air Force / Paramilitary (CRPF, BSF, CISF, etc.) personnel only.</div>
+    <div class="r-item"><span class="r-lbl">Documents</span><span class="r-warn">Original Service ID card + valid dependent ID cards for each family member. All family members must individually carry their own dependent cards.</span></div>
+    <div class="r-item"><span class="r-lbl">Critical Risk</span><span class="r-warn">Quota <b>can be cancelled any day</b> without prior notice based on crowd. <b>Always call TTD helpline to confirm on the actual day of travel before proceeding.</b></span></div>
+    <div class="r-item"><span class="r-lbl">Retired Personnel</span><span class="r-warn">Generally not eligible. Must use SED or Sarva Darshan.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>9</td>
+  <td><span class="row-type-label">Infant Darshan</span><br><small style="color:#6b5230">Parents with infant under 1 year</small></td>
+  <td><span class="tag tag-special">SPECIAL</span></td>
+  <td><span class="cost-free">₹0</span><span class="cost-note">Free. No ticket needed for infant or parents through this route.</span></td>
+  <td><b>Both parents only.</b> No other family member through this route. Grandparents / siblings / in-laws must use separate queues.</td>
+  <td>12 PM – 6 PM. Supatham timings.</td>
+  <td><span class="wait-pill wait-fast">30–90 min</span><br><small>Priority within Supatham lane.</small></td>
+  <td class="entry-loc"><strong>Supatham Entrance</strong>Dedicated infant lane. Report directly with birth cert + parents' Aadhaar.</td>
+  <td>No advance booking. Walk-in at Supatham between 12 PM – 6 PM. TTD staff verify infant's age.</td>
+  <td><span class="chip chip-counter">Walk-in at Supatham. No booking needed.</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Infant Age</span><span class="r-warn">Strictly <b>under 1 year (below 12 months)</b> on day of visit. Not applicable for children 12 months or older.</span></div>
+    <div class="r-item"><span class="r-lbl">Documents</span><span class="r-warn">Infant's <b>birth certificate</b> (mandatory — original or attested copy) + both parents' Aadhaar cards. TTD verifies date of birth at entry.</span></div>
+    <div class="r-item"><span class="r-lbl">Companions</span><span class="r-warn">Both parents + infant only. Grandparents, siblings, and other relatives: <b>not allowed through this lane</b>.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>10</td>
+  <td><span class="row-type-label">Newly Wed Couple</span><br><small style="color:#6b5230">Nava Dampathulu — Marriage within 7 days</small></td>
+  <td><span class="tag tag-special">SPECIAL</span></td>
+  <td><span class="cost-free">₹0 (Supatham entry)</span><span class="cost-note">Separate Supatham darshan for couples married within 7 days on producing marriage certificate. Accompanying family members must book standard SED tickets separately.</span></td>
+  <td>Newly wed couple only (husband + wife). Family members are not allowed through this route.</td>
+  <td>Supatham timings: 12 PM – 6 PM.</td>
+  <td><span class="wait-pill wait-fast">30–90 min</span><br><small>Priority within Supatham lane.</small></td>
+  <td class="entry-loc"><strong>Supatham Entrance</strong>Report directly with marriage proof. TTD staff verify documents.</td>
+  <td>Walk-in at Supatham. No advance booking required. Carry marriage certificate or wedding invitation card (original).</td>
+  <td><span class="chip chip-counter">Walk-in at Supatham with documents.</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Eligibility</span><span class="r-warn">Marriage must have taken place within <b>7 days</b> of darshan date. Older marriage certificates (married more than 7 days ago) do not qualify for this route.</span></div>
+    <div class="r-item"><span class="r-lbl">Documents</span>Original marriage certificate (registered) or original wedding invitation card with date + both names + photo (if available) + both partners' Aadhaar cards.</div>
+    <div class="r-item"><span class="r-lbl">Companions</span><span class="r-warn">Couple only. Parents / siblings / in-laws must use SED or Sarva Darshan separately.</span></div>
+    <div class="r-item"><span class="r-lbl">Recommended Seva</span><span class="r-ok">Kalyanotsavam seva (Row 20) is ideal for newly-weds — ₹500 for couple, witness the celestial wedding of the Lord + close darshan. Requires opposite-gender pair (confirmed from source: male + female pilgrim required).</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown for this category.</span></div>
+  </td>
+</tr>
+
+</tbody></table></div>
+
+<!-- ══════════════════════ 4. SRIVANI / DONOR ══════════════════════ -->
+<div class="section-title">Srivani Trust &amp; Donor Break Darshans</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:145px">Mode / Type</th><th>Cat.</th>
+  <th style="min-width:115px">Cost / Donation</th><th style="min-width:100px">People Allowed</th>
+  <th style="min-width:110px">Timings</th><th style="min-width:85px">Wait Time (Darshan)</th>
+  <th style="min-width:130px">Entry Point</th>
+  <th style="min-width:100px">How to Book</th><th style="min-width:100px">Website</th>
+  <th style="min-width:200px">Restrictions &amp; Eligibility</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td>11</td>
+  <td><span class="row-type-label">SRIVANI Break Darshan</span><br><small style="color:#6b5230">₹10,000 Srivani Trust donation — current-day booking from 9 AM</small></td>
+  <td><span class="tag tag-vip">VIP</span></td>
+  <td><span class="cost-val">₹10,000 donation</span> + ₹500 ticket<span class="cost-note">Current-day booking: 800 tickets available online from 9 AM daily for same-day darshan (via tirupatibalaji.ap.gov.in). Airport counter: ₹10,500/person. 80G tax exemption.</span></td>
+  <td>1 donor = 1 darshan ticket per donation. Each additional person requires their own ₹10,000 donation. Children &lt;12 free.</td>
+  <td>Current-day break darshan at 4 PM onwards. Online current-day booking opens at 9 AM IST. Monthly advance quota also released on 23rd at 11 AM (2 months ahead). Tirupati Airport counter: tickets daily at 7 AM.</td>
+  <td><span class="wait-pill wait-fast">30–60 min</span><br><small>Dedicated VIP lane. Close darshan near sanctum entrance.</small></td>
+  <td class="entry-loc"><strong>Supatham Entry — SRIVANI VIP Lane</strong>Carry original donation receipt + Aadhaar. Report 1 hr before slot.</td>
+  <td>Book online at tirupatibalaji.ap.gov.in (current-day from 9 AM). Airport counter (7 AM daily). <b>Annamaiah Bhavan / JEO Office offline counter no longer operational for SRIVANI</b> — moved to online current-day system.</td>
+  <td><div class="chip chip-web">tirupatibalaji.ap.gov.in</div><div class="chip chip-airport">Airport counter</div><span class="url">→ SRIVANI Trust Donations</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Cooldown</span>No stated cooldown per donation. Each ₹10,000 donation enables one Break Darshan ticket.</div>
+    <div class="r-item"><span class="r-lbl">Transferability</span><span class="r-warn">Strictly linked to donor name + ID. Non-transferable. Resale not allowed.</span></div>
+    <div class="r-item"><span class="r-lbl">Documents</span>Original donation receipt + Aadhaar / ID matching donation name.</div>
+    <div class="r-item"><span class="r-lbl">Dress Code</span><span class="r-warn">Traditional attire strictly enforced at SRIVANI lane.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>12</td>
+  <td><span class="row-type-label">Donor Quota — ₹1L to ₹5L</span><br><small style="color:#6b5230">Supadam entry — 1 day/year, lifelong</small></td>
+  <td><span class="tag tag-vip">VIP</span></td>
+  <td><span class="cost-val">₹1,00,000 – ₹5,00,000</span><span class="cost-note">One-time donation. Annual benefit: 1 day darshan, ₹100 room, 6 small laddus, Vastra bahumanam (Dupatta + blouse piece). 80G exemption.</span></td>
+  <td>Donor + up to 4 family members (5 total) per darshan day. Children &lt;12 free.</td>
+  <td>1 day/year, lifelong. Booking window every 2 months via donor portal.</td>
+  <td><span class="wait-pill wait-fast">30–90 min</span></td>
+  <td class="entry-loc"><strong>Supadam Entry (VQC-1 area)</strong>Carry Donor Passbook + original IDs of all members.</td>
+  <td>Donate online at tirupatibalaji.ap.gov.in (edonation section) or Donor Cell Office near EO's Office, Tirumala. Darshan booking via donor portal after passbook issued (~24–48 hrs).</td>
+  <td><div class="chip chip-donor">tirupatibalaji.ap.gov.in</div><span class="url">→ eDonation / Donor Dashboard</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Frequency</span><span class="r-warn">1 darshan day per year. Booking window: every 2 months. Miss the window = forfeit that allocation.</span></div>
+    <div class="r-item"><span class="r-lbl">Family Names</span>Up to 4 additional names (5 incl. donor). Names can be changed later; donor name is permanent.</div>
+    <div class="r-item"><span class="r-lbl">After Donor's Death</span><span class="r-ok">Family may continue privilege subject to TTD approval.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>13</td>
+  <td><span class="row-type-label">Donor Quota — ₹5L to ₹25L</span><br><small style="color:#6b5230">VIP Break Darshan L1 — 3 days/year</small></td>
+  <td><span class="tag tag-vip">VIP</span></td>
+  <td><span class="cost-val">₹5L – ₹25L</span><span class="cost-note">3 days/yr. ₹1,500 room for 3 nights. 20 small laddus, 10 Maha Prasadam packets, 50g silver dollar (one-time).</span></td>
+  <td>Donor + 4 family per day (5 total).</td>
+  <td>3 days/yr. Break darshan slots. Book via donor portal.</td>
+  <td><span class="wait-pill wait-fast">15–45 min</span></td>
+  <td class="entry-loc"><strong>VIP Break Entry — Protocol Lane</strong>Separate from all other queues. Escort provided.</td>
+  <td>Donor Cell Office, Tirumala or online at tirupatibalaji.ap.gov.in.</td>
+  <td><div class="chip chip-donor">tirupatibalaji.ap.gov.in</div></td>
+  <td class="restrict"><div class="r-item"><span class="r-lbl">Frequency</span><span class="r-warn">3 days per year. Annual allocation.</span></div></td>
+</tr>
+
+<tr>
+  <td>14</td>
+  <td><span class="row-type-label">Donor Quota — ₹25L to ₹1Cr</span><br><small style="color:#6b5230">VIP Break First Protocol L1</small></td>
+  <td><span class="tag tag-vip">VIP</span></td>
+  <td><span class="cost-val">₹25L – ₹1Cr</span><span class="cost-note">3 days/yr. ₹1,500 rooms. 4 big + 5 small laddus, 10 Maha Prasadam, 5g gold + 50g silver dollar (one-time).</span></td>
+  <td>Donor + 4 family per day.</td>
+  <td>3 break darshan days/yr.</td>
+  <td><span class="wait-pill wait-fast">10–30 min</span></td>
+  <td class="entry-loc"><strong>Protocol VIP Entry</strong>Dedicated protocol officer + inner corridor access.</td>
+  <td>tirupatibalaji.ap.gov.in or Donor Cell, Tirumala.</td>
+  <td><div class="chip chip-donor">tirupatibalaji.ap.gov.in</div></td>
+  <td class="restrict"><div class="r-item"><span class="r-lbl">Frequency</span><span class="r-warn">3 days per year.</span></div></td>
+</tr>
+
+<tr>
+  <td>15</td>
+  <td><span class="row-type-label">Donor — ₹1 Crore &amp; Above</span><br><small style="color:#6b5230">Highest tier — Suprabhatam, Veda Ashirvachanam, Yagam</small></td>
+  <td><span class="tag tag-vip">VIP</span></td>
+  <td><span class="cost-val">₹1 Crore+</span><span class="cost-note">3 VIP Break days/yr (free). Suprabhatam Seva 3 days/yr. VIP suite (₹2,500 tariff). Veda Ashirvachanam inside temple. Yagam at Srinivasamangapuram.</span></td>
+  <td>Donor + 4 family per day.</td>
+  <td>3 VIP Break days/yr. Priority break slots.</td>
+  <td><span class="wait-pill wait-fast">5–15 min</span><br><small>Closest proximity to Lord. Personal escort.</small></td>
+  <td class="entry-loc"><strong>Inner Protocol Entry</strong>Personal escort from entry.</td>
+  <td>Cheque / DD at Donor Cell or online.</td>
+  <td><div class="chip chip-donor">tirupatibalaji.ap.gov.in</div></td>
+  <td class="restrict"><div class="r-item"><span class="r-lbl">Frequency</span><span class="r-warn">3 days/yr VIP Break + 3 Suprabhatam Sevas per year.</span></div></td>
+</tr>
+
+</tbody></table></div>
+
+<!-- ══════════════════════ 5. VIP / PROTOCOL ══════════════════════ -->
+<div class="section-title">VIP / Protocol / Recommendation-Based Darshans</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:145px">Mode / Type</th><th>Cat.</th>
+  <th style="min-width:85px">Cost</th><th style="min-width:110px">Eligibility</th>
+  <th style="min-width:115px">Timings</th><th style="min-width:80px">Wait Time</th>
+  <th style="min-width:130px">Entry Point</th>
+  <th style="min-width:115px">How to Access</th>
+  <th style="min-width:195px">Restrictions</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td>16</td>
+  <td><span class="row-type-label">VIP Break — L1 (VVIP)</span><br><small style="color:#6b5230">Judges, Governors, Central Ministers, MPs</small></td>
+  <td><span class="tag tag-vip">VVIP</span></td>
+  <td><span class="cost-free">Free (Protocol)</span></td>
+  <td>Constitutional / senior govt. post holders + immediate family. No public access.</td>
+  <td>Per protocol. Usually early morning break slots.</td>
+  <td><span class="wait-pill wait-fast">Immediate–15 min</span></td>
+  <td class="entry-loc"><strong>Inner Protocol Entry</strong><span class="r-warn">Not through Mahadwaram. All pilgrims including VVIPs enter through VQC / Supatham / designated protocol lanes — not from Mahadwaram (East Gate facade).</span></td>
+  <td>TTD Protocol Office / EO handles. Not publicly bookable. JEO Office, Tirumala.</td>
+  <td class="restrict"><div class="r-item"><span class="r-lbl">Eligibility</span>Constitutional posts: President, VP, Governors, CJI, SC Judges, Central Cabinet Ministers, Lok Sabha Speaker, senior MPs. Not publicly accessible.</div></td>
+</tr>
+
+<tr>
+  <td>17</td>
+  <td><span class="row-type-label">VIP Break — L2</span><br><small style="color:#6b5230">TTD Employees &amp; families</small></td>
+  <td><span class="tag tag-vip">VIP</span></td>
+  <td><span class="cost-free">Free / subsidised</span></td>
+  <td>TTD employees + family. Internal quota only.</td>
+  <td>Designated break slots.</td>
+  <td><span class="wait-pill wait-fast">15–30 min</span></td>
+  <td class="entry-loc"><strong>VIP Break Entry, VQC-1 area</strong></td>
+  <td>TTD HR / employee portal. Not publicly accessible.</td>
+  <td class="restrict"><div class="r-item"><span class="r-lbl">Access</span><span class="r-warn">Internal TTD process only.</span></div></td>
+</tr>
+
+<tr>
+  <td>18</td>
+  <td><span class="row-type-label">VIP Break — L3</span><br><small style="color:#6b5230">Recommendation letter from MLA, MP, Ministers, IAS/IPS, Collector</small></td>
+  <td><span class="tag tag-vip">VIP</span></td>
+  <td><span class="cost-free">Free</span><span class="cost-note">No charge.</span></td>
+  <td>As per letter. Typically 1–6 persons per letter.</td>
+  <td>Submit letter at JEO Office before 12 PM. Darshan allotted for same-day or next-day break slot.</td>
+  <td><span class="wait-pill wait-med">1–3 hrs</span><br><small>Faster than SED on normal days. L3 can be busy.</small></td>
+  <td class="entry-loc"><strong>VIP Break Entry — JEO Office, Tirumala</strong>Submit letter → collect token → report at allotted break slot time. Not through Mahadwaram.</td>
+  <td>Obtain letter from MLA / MP / Minister / IAS-IPS / Collector. 1 person can submit. Carry photocopies of all members' IDs. Submit at JEO Office before 12 PM.</td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Documents</span>Original recommendation letter on official letterhead + photocopies of Aadhaar / ID for all named persons.</div>
+    <div class="r-item"><span class="r-lbl">Blackout Periods</span><span class="r-warn">L3 VIP Break <b>NOT available during Brahmotsavam</b> (~9 days Sept–Oct) and certain major utsavams. Confirm TTD website before travel.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown.</span></div>
+  </td>
+</tr>
+
+</tbody></table></div>
+
+<!-- ══════════════════════ 6. ARJITA SEVAS ══════════════════════ -->
+<div class="section-title">Arjita Sevas — includes darshan (eDIP Lucky Draw)</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:155px">Mode / Type</th><th>Cat.</th>
+  <th style="min-width:95px">Cost</th><th style="min-width:100px">Pilgrims</th>
+  <th style="min-width:125px">Seva &amp; Darshan Timings</th><th style="min-width:85px">Total Time</th>
+  <th style="min-width:145px">Queue / Entry Point</th>
+  <th style="min-width:100px">How to Book</th><th style="min-width:100px">Website</th>
+  <th style="min-width:210px">Restrictions &amp; Eligibility</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td>19</td>
+  <td><span class="row-type-label">Arjita Sevas — eDIP Lucky Draw</span><br><small style="color:#6b5230">Suprabhatam · Thomala · Archana · Nijapada Darshanam · Ashtadala Pada Padmaradhana</small></td>
+  <td><span class="tag tag-seva">ARJITA SEVA</span></td>
+  <td><span class="cost-val">₹300–₹500/ticket</span><span class="cost-note">Suprabhatam ₹500 · Thomala ₹300 · Archana ₹300 · Nijapada ₹500. Pay only if selected in DIP. Registration itself is free.</span></td>
+  <td>1–2 pilgrims per registration (self + 1). Aadhaar mandatory. NRI: Passport (India arrival ≤30 days verified).</td>
+  <td>Seva begins at specific ritual times (Suprabhatam ~2:30 AM). Darshan follows seva. Report 1 hr before seva at reporting gate printed on ticket.</td>
+  <td><span class="wait-pill wait-fast">30–90 min</span><br><small>Post-seva darshan from Jaya Vijaya gate — very close, intimate darshan.</small></td>
+  <td class="entry-loc"><strong>Entry: VQC (Vaikuntam Queue Complex)</strong>Queue and entry via VQC. Pilgrims are then escorted to Ranganayakula Mandapam inside the temple complex where the seva is performed. VQC is the entry; Mandapam is the seva venue inside.</td>
+  <td>eDIP registration window: monthly (~18th–21st at 10 AM) for 3 months ahead. Computerised random draw. Payment only if selected (SMS / email). Register at ttdevasthanams.ap.gov.in.</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><span class="url">→ Arjita Seva / Seva Electronic DIP</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-warn"><b>180 days</b> between eDIP registrations per person (confirmed from TTD source: "User already registered in last 180 days"). Cannot register again within 180 days of last seva date.</span></div>
+    <div class="r-item"><span class="r-lbl">Selection</span><span class="r-warn">Registration does NOT guarantee selection. Random computerised draw. Allotment result by SMS/email. Check official site.</span></div>
+    <div class="r-item"><span class="r-lbl">Transferability</span><span class="r-warn">Non-transferable. Biometric check at reporting gate.</span></div>
+    <div class="r-item"><span class="r-lbl">Cancellation</span><span class="r-warn">No alteration or transfer after selection. No-show = no refund.</span></div>
+    <div class="r-item"><span class="r-lbl">Blackout</span><span class="r-warn">Not available during Brahmotsavam dates.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>20</td>
+  <td><span class="row-type-label">Kalyanotsavam / Vasanthotsavam</span><br><small style="color:#6b5230">₹500 Couple Seva — celestial marriage ritual + darshan</small></td>
+  <td><span class="tag tag-seva">ARJITA SEVA</span></td>
+  <td><span class="cost-val">₹500/ticket</span><span class="cost-note">1 ticket = 1 couple (husband + wife). Darshan follows seva.</span></td>
+  <td>1 couple per ticket. Aadhaar for both. <b>Must be male + female pilgrim</b> (confirmed from TTD source: "Kalyanotsavam seva will be performed by a married couple of opposite gender"). Ideal for newly-weds.</td>
+  <td>Multiple daily slots. Released 22nd–23rd each month at 10 AM for 3 months ahead.</td>
+  <td><span class="wait-pill wait-fast">2–3 hrs total</span></td>
+  <td class="entry-loc"><strong>Entry: VQC reporting gate</strong>Seva performed at Ranganayakula Mandapam inside. Entry via VQC.</td>
+  <td>Online Arjita Seva / eDIP booking. Monthly quota release.</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><span class="url">→ Arjita Seva</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Gender Rule</span><span class="r-warn">Must be 1 male + 1 female pilgrim — same-gender pairs not accepted. System validation enforces this.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-warn">180 days (same eDIP system). Cannot register again within 180 days.</span></div>
+    <div class="r-item"><span class="r-lbl">Cancellation</span><span class="r-warn">Not allowed.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>21</td>
+  <td><span class="row-type-label">Sahasra Deepalankarana Seva</span><br><small style="color:#6b5230">₹500 Thousand-Lamps Seva — includes darshan</small></td>
+  <td><span class="tag tag-seva">ARJITA SEVA</span></td>
+  <td><span class="cost-val">₹500/ticket</span></td>
+  <td>1–2 pilgrims per ticket. Aadhaar required.</td>
+  <td>Evening / night timings. Released 3 months ahead on 22nd–23rd at 10 AM.</td>
+  <td><span class="wait-pill wait-fast">2–3 hrs</span></td>
+  <td class="entry-loc"><strong>Entry: VQC reporting gate</strong>Seva at Ranganayakula Mandapam inside. Entry via VQC.</td>
+  <td>Online booking via ttdevasthanams.ap.gov.in.</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-warn">180 days (eDIP system).</span></div>
+    <div class="r-item"><span class="r-lbl">Cancellation</span><span class="r-warn">Not allowed.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>22</td>
+  <td><span class="row-type-label">Angapradakshinam</span><br><small style="color:#6b5230">Body-rolling pradakshina — free seva, physically demanding</small></td>
+  <td><span class="tag tag-arjita">SEVA</span></td>
+  <td><span class="cost-free">₹0 (free)</span><span class="cost-note">Optional extra laddu: ₹10. ~800 tickets/day online.</span></td>
+  <td>1 ticket per person. Must take holy dip in Pushkarini with wet body. Traditional attire mandatory.</td>
+  <td>Performed during Suprabhatam (~2:30–4 AM). Report at NE gate by <b>12:30 AM</b> in wet traditional attire.</td>
+  <td><span class="wait-pill wait-med">3–4 hrs total</span><br><small>Full body-rolling around outer pradakshina path then darshan from Jaya Vijaya gate. Very physically demanding.</small></td>
+  <td class="entry-loc"><strong>Entry: Pushkarini / North-East Gate</strong>Queue and assembly at temple NE gate. Seva on outer pradakshina path. Darshan from Jaya Vijaya gate.</td>
+  <td>Online registration: quota released ~21st each month at 10 AM (3 months ahead). Also part of eDIP registration (select Angapradakshinam option).</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><span class="url">→ Angapradakshinam / eDIP</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Physical Req.</span><span class="r-warn">Very physically demanding. Not advised for elderly, heart patients, or anyone with physical limitations.</span></div>
+    <div class="r-item"><span class="r-lbl">Wet Attire</span><span class="r-warn">Mandatory: must have bathed in Pushkarini and report with wet body in traditional attire. Dry clothes after bath not accepted.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown for Angapradakshinam specifically.</span></div>
+    <div class="r-item"><span class="r-lbl">Transferability</span><span class="r-warn">Non-transferable.</span></div>
+  </td>
+</tr>
+
+<tr>
+  <td>23</td>
+  <td><span class="row-type-label">Divyanugraha Homam</span><br><small style="color:#6b5230">Sri Srinivasa Divyanugraha Visesha Homam</small></td>
+  <td><span class="tag tag-arjita">SEVA</span></td>
+  <td><span class="cost-val">₹1,000+</span><span class="cost-note">Varies by tier. Physical attendance includes darshan. Virtual: watch live at home.</span></td>
+  <td>Up to 2 pilgrims for physical attendance. Virtual: no limit.</td>
+  <td>Quota released ~25th each month at 10 AM for physical slots.</td>
+  <td><span class="wait-pill wait-fast">~1–2 hrs</span></td>
+  <td class="entry-loc"><strong>Entry: VQC (Vaikuntam Queue Complex)</strong>Queue and entry via VQC. Homam is at the designated homashala within the Tirumala complex. <b>NOT at PAT Temple, Tiruchanoor.</b></td>
+  <td>Online booking via ttdevasthanams.ap.gov.in.</td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Location</span><span class="r-warn">Performed at Tirumala complex (VQC entry). Not at PAT Temple Tiruchanoor.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown.</span></div>
+  </td>
+</tr>
+
+</tbody></table></div>
+
+<!-- ══════════════════════ 7. VIRTUAL SEVA ══════════════════════ -->
+<div class="section-title">Virtual Seva — Connected Darshan (Separate seva; NOT linked to SED tickets)</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:155px">Mode / Type</th>
+  <th style="min-width:90px">Cost</th><th style="min-width:95px">People</th>
+  <th style="min-width:155px">Process</th><th style="min-width:120px">Darshan Entry</th>
+  <th style="min-width:85px">Wait Time (Darshan)</th>
+  <th style="min-width:100px">Website</th>
+  <th style="min-width:200px">Restrictions</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>24</td>
+  <td><span class="row-type-label">Virtual Seva — PM-released</span><br><small style="color:#6b5230">Watch seva live at home first (released at 3 PM), then attend Tirumala for physical darshan</small></td>
+  <td><span class="cost-val">₹300–₹3,000</span><span class="cost-note">Varies by seva. 2 free laddus.</span></td>
+  <td>1–2 pilgrims per ticket.</td>
+  <td>Book online (released 21st at 3 PM, 3 months ahead). Watch seva on TTD live TV / YouTube at scheduled time. Then report to Tirumala with e-ticket + ID for physical darshan. <b>This is a distinct virtual-seva flow — entirely separate from the SED (₹300) darshan tickets.</b></td>
+  <td class="entry-loc"><strong>VQC-1 Virtual Seva darshan queue</strong>Separate from standard SED queue.</td>
+  <td><span class="wait-pill wait-fast">1–2 hrs</span></td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><span class="url">→ Virtual Seva (releases 21st at 3 PM)</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Key Rule</span><span class="r-warn">Must watch the seva online before attending physically. TTD verifies participation. Darshan not granted if virtual watch not confirmed.</span></div>
+    <div class="r-item"><span class="r-lbl">Not SED</span>Virtual Seva is a completely separate booking and queue from the ₹300 SED ticket. Do not confuse the two.</div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown.</span></div>
+  </td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><span class="row-type-label">Virtual Seva — AM-released</span><br><small style="color:#6b5230">Morning release → attend Tirumala in person directly</small></td>
+  <td><span class="cost-val">₹300–₹3,000</span></td>
+  <td>1–2 pilgrims.</td>
+  <td>Book online (released 21st at 10 AM). Report at Tirumala at specified time. Participate in seva in-person at Ranganayakula Mandapam. Darshan follows. Entry via VQC. Separate from SED.</td>
+  <td class="entry-loc"><strong>VQC reporting gate</strong>Seva at Ranganayakula Mandapam. Entry via VQC.</td>
+  <td><span class="wait-pill wait-fast">2–3 hrs total</span></td>
+  <td><div class="chip chip-web">ttdevasthanams.ap.gov.in</div><span class="url">→ Virtual Seva (releases 21st at 10 AM)</span></td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">No stated cooldown.</span></div>
+    <div class="r-item"><span class="r-lbl">ID</span>Aadhaar / Passport mandatory at VQC gate.</div>
+  </td>
+</tr>
+</tbody></table></div>
+
+<!-- ══════════════════════ 8. GOVT PACKAGE ══════════════════════ -->
+<div class="section-title">Government Schemes / Package Tours</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:155px">Mode / Type</th>
+  <th style="min-width:100px">Cost</th><th style="min-width:90px">Eligibility</th>
+  <th style="min-width:155px">What's Included</th><th style="min-width:110px">Darshan Type</th>
+  <th style="min-width:85px">Wait Time</th><th style="min-width:100px">How to Apply</th>
+  <th style="min-width:185px">Restrictions</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>26</td>
+  <td><span class="row-type-label">APSRTC Divya Darshan Package</span><br><small style="color:#6b5230">AP Govt subsidised bus + darshan tour</small></td>
+  <td><span class="cost-val">₹200–₹700/person</span><span class="cost-note">Bus travel from AP/TS towns + arranged darshan + basic accommodation. Highly subsidised.</span></td>
+  <td>All Indian citizens. Limited seats.</td>
+  <td>APSRTC bus from AP towns to Tirupati + Tirumala. Group SED / Sarva Darshan arranged by APSRTC. Prasadam included.</td>
+  <td>SED (₹300) or Sarva Darshan, arranged as a group.</td>
+  <td><span class="wait-pill wait-med">3–6 hrs</span></td>
+  <td>APSRTC website or AP town counters. Book in advance.</td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Eligibility</span><span class="r-ok">All Indian citizens. Standard child rules apply.</span></div>
+    <div class="r-item"><span class="r-lbl">ID</span>Aadhaar mandatory.</div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span><span class="r-ok">None.</span></div>
+    <div class="r-item"><span class="r-lbl">Website</span><span class="url">apsrtconline.in / aptdc.in</span></div>
+  </td>
+</tr>
+</tbody></table></div>
+
+<!-- ══════════════════════ 9. VAIKUNTA DWARA ══════════════════════ -->
+<div class="section-title">Annual Special — Vaikunta Dwara Darshanam</div>
+<div class="tbl-wrap"><table>
+<thead><tr>
+  <th>#</th><th style="min-width:145px">Mode / Type</th><th>Cat.</th>
+  <th style="min-width:90px">Cost</th><th style="min-width:100px">People</th>
+  <th style="min-width:125px">Period / Timings</th><th style="min-width:85px">Wait Time (Darshan)</th>
+  <th style="min-width:130px">Entry Point</th><th style="min-width:100px">How to Access</th>
+  <th style="min-width:200px">Restrictions</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>27</td>
+  <td><span class="row-type-label">Vaikunta Dwara Darshanam</span><br><small style="color:#6b5230">Dhanurmasa / Mukkoti Ekadasi — Annual. Exact dates change each year; refer TTD website for current year dates.</small></td>
+  <td><span class="tag tag-paid">PAID / FREE</span></td>
+  <td><span class="cost-val">₹300 (SED)</span><span class="cost-note">Srivani donors: VIP Break Darshan (₹10,000 + ₹500 ticket via online current-day booking). USSES/VVD holders: via Arjitham Office proceedings.</span></td>
+  <td>All pilgrims via SED ticket. VIP donors via Break Darshan. USSES/VVD seva holders via Arjitham Office.</td>
+  <td>Annual: Dhanurmasa period (typically late Dec – early Jan, ~10 days). Sacred Vaikunta Dwara (North Gate) opened. Slot timings: typically 8 AM, 9 AM, 10 AM. Check TTD website for exact dates each year.</td>
+  <td><span class="wait-pill wait-slow">6–20+ hrs</span><br><small>SED: 3–5 hrs. Sarva: 12–20+ hrs. VIP Break: 30–60 min.</small></td>
+  <td class="entry-loc"><strong>VQC-1 (SED / VIP)</strong>VQC-2 (Sarva Darshan). VIP donors reporting point: 300 Online Hall during the Vaikunta Dwara period.</td>
+  <td>SED: ttdevasthanams.ap.gov.in (same process as regular SED, extreme demand). VIP donors: tirupatibalaji.ap.gov.in (current-day 9 AM). USSES/VVD: Arjitham Office proceedings in person — collect proceedings 1 day prior before 5 PM at Arjitham Office, Tirumala (Tel: 08772263589 · Email: arjithamoffice@gmail.com). Donor + 5 members (total 6) permitted.</td>
+  <td class="restrict">
+    <div class="r-item"><span class="r-lbl">Exact Dates</span><span class="r-warn">Dates change year to year based on Dhanurmasa / Ekadasi calendar. Do NOT rely on fixed dates. Always confirm exact dates at <a href="https://ttdevasthanams.ap.gov.in">ttdevasthanams.ap.gov.in</a> before planning.</span></div>
+    <div class="r-item"><span class="r-lbl">Demand</span><span class="r-warn">SED tickets sell out in seconds. Must book within minutes of release.</span></div>
+    <div class="r-item"><span class="r-lbl">Cooldown</span>Standard SED 90-day cooldown applies. Senior/Divyang using their quota: 90-day cooldown.</div>
+    <div class="r-item"><span class="r-lbl">USSES/VVD Process</span>Collect Proceedings for Break Darshan one day before before 5 PM at Arjitham Office. Gruhastha's (donor's) presence is compulsory. Send intimation with 3–4 option dates to arjithamoffice@gmail.com for date confirmation.</div>
+  </td>
+</tr>
+</tbody></table></div>
+
+<div class="footnotes">
+  <h3>General Notes, Restrictions &amp; Reminders</h3>
+  <ul>
+    <li><strong>Children below 12 years</strong> free on all categories with parent/guardian. Always carry age proof (birth certificate / school ID). Children 12+ need their own ticket.</li>
+    <li><strong>ID Proof mandatory</strong> for all adults: Aadhaar (Indians) / Passport (NRI/Foreign). Tickets are biometrically linked and non-transferable on SED, Divya Darshan, and all Arjita Seva categories.</li>
+    <li><strong>Dress Code (confirmed from TTD source):</strong> <b>Male: Dhoti, Shirt / Female: Saree / Half Saree / Chudidar with Dupatta.</b> Western casuals not permitted near sanctum, queue complexes, or Mada Streets. Footwear not permitted inside queue lines, Mada Streets, or temple.</li>
+    <li><strong>Mahadwaram (East Gate)</strong> is the sacred inner temple gateway visible to pilgrims. It is <em>not</em> a public entry point from outside. No pilgrim category (including VVIP) uses Mahadwaram as an entry gate. All pilgrims enter through VQC / Supatham / designated protocol lanes.</li>
+    <li><strong>SED ₹300 General Darshan: 90-day cooling period</strong> between bookings per person. <strong>Arjita Seva eDIP: 180-day cooling period</strong> between registrations (confirmed from TTD booking portal JS source).</li>
+    <li><strong>Virtual Seva is separate from SED</strong> — it is its own booking flow (virtual-seva / connected darshan) and uses a different queue lane at VQC-1. Do not confuse with the standard ₹300 SED ticket.</li>
+    <li><strong>Vaikunta Dwara Darshanam dates change each year</strong> — always verify current year's exact dates at TTD website before planning travel.</li>
+    <li><strong>Supatham Entry</strong> is shared by: Senior Citizens, Divyang, Medical cases, Infant parents, NRIs, Newly Wed couples, SRIVANI donors, Donor quota holders. Timing approximately 12 PM – 6 PM for walk-in categories. Confirm current timings with TTD.</li>
+    <li><strong>VIP Break Darshan (L3 / recommendation letter)</strong> is suspended during Brahmotsavam (~9 days Sept–Oct) and certain major utsavams. Check blackout dates at TTD website before travelling.</li>
+    <li><strong>Rescheduling / Cancellation:</strong> Not allowed for any online-booked category (SED, Arjita Seva, Senior Citizen, Virtual Seva). Late arrival = slot forfeited, no refund.</li>
+    <li><strong>Quota release schedule (approx. 3 months ahead):</strong> SED ₹300 → 22nd at 10 AM · Arjita Seva eDIP reg → 18th–21st at 10 AM · Angapradakshinam → 21st at 10 AM · Senior/Divyang → 23rd at 3 PM · Virtual Seva PM release → 21st at 3 PM · Accommodation → 24th · SRIVANI Trust advance quota → 23rd at 11 AM · SRIVANI current-day → daily at 9 AM IST.</li>
+    <li><strong>Official booking portals:</strong> SED, Arjita Seva, Accommodation → <a href="https://ttdevasthanams.ap.gov.in" target="_blank">ttdevasthanams.ap.gov.in</a> &amp; Govinda app. Srivani / Donor darshans / eDonation → <a href="https://tirupatibalaji.ap.gov.in" target="_blank">tirupatibalaji.ap.gov.in</a>. Info hub → <a href="https://www.tirumala.org" target="_blank">www.tirumala.org</a>.</li>
+    <li><strong>TTD Helpline (24×7 toll-free):</strong> 1800-425-333333 · 1800-425-4141 · 155257. TTD does not authorise any agents for darshan or seva booking. Beware of fraudulent websites and touts.</li>
+  </ul>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
